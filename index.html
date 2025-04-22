@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jana Jyoti Namuna Secondary School</title>
+    <link rel="icon" href="image/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="body">
+    <header>
+        <!-- Navbar with logo -->
+        <nav class="a">
+            <!-- Logo at the top -->
+            <img src="image/logo.png" alt="School Logo" style="width: 80px; height: 80px; margin-left: 20px; align-items: center;">
+            <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+        </nav>
+  
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="html/nur.html">Nursery</a></li>
+                <li><a href="html/kg.html">KG</a></li>
+                <li><a href="html/class1.html">Class 1</a></li>
+                <li><a href="html/class2.html">Class 2</a></li>
+                <li><a href="html/class3.html">Class 3</a></li>
+                <li><a href="html/class4.html">Class 4</a></li>
+                <li><a href="html/class5.html">Class 5</a></li>
+                <li><a href="html/class6.html">Class 6</a></li>
+                <li><a href="html/class7.html">Class 7</a></li>
+                <li><a href="html/class8.html">Class 8</a></li>
+                <li><a href="html/class9.html">Class 9</a></li>
+                <li><a href="html/class10.html">Class 10</a></li>
+            </ul>
+        </div>
+
+        <script>
+            function toggleSidebar() {
+                let sidebar = document.getElementById("sidebar");
+                let content = document.getElementById("content");
+                sidebar.classList.toggle("show");
+                content.classList.toggle("shift");
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </header>
+
+    <!-- Main content -->
+    <div class="firstsection">
+        <img src="image/school.png" alt="tight-image" class="school" style="padding: 5px;">
+        <h3 style="margin: 5px; text-align: justify;">Welcome to <br>Shree Jana Jyoti Namuna Secondary School!</h3>
+        <p class="p" style="text-align: justify;">
+            Dear Students, Parents, and Visitors,<br><br>
+            It is with great pride and enthusiasm that we welcome you to Shree Jana Jyoti Namuna
+            Secondary School, a place of knowledge, growth, and excellence...
+            <br><br>
+            📚 <span class="s">"Education is the key to unlocking infinite possibilities!"</span>
+        </p>
+        <p class="p" style="text-align: right;">Warm regards,<br>Shree Jana Jyoti Namuna Secondary School</p>
+    </div>
+    <!-- News Section -->
+<div class="news-section">
+    <h2>Latest News</h2>
+    <div class="news-article">
+        <img src="image/sports-day.jpg" alt="Sports Day" class="news-image">
+        <div class="news-content">
+            <h3><a href="#">Annual Sports Day - 2025</a></h3>
+            <p class="date">Published on: April 22, 2025</p>
+            <p class="summary">Join us for the exciting Annual Sports Day where students will showcase their athletic skills and talents. The event will be held at the school ground. Come and cheer for your favorite team!</p>
+            <a href="#" class="read-more">Read More...</a>
+        </div>
+    </div>
+
+    <div class="news-article">
+        <img src="image/summer-break.jpg" alt="School Reopening" class="news-image">
+        <div class="news-content">
+            <h3><a href="#">School Reopening after Summer Break</a></h3>
+            <p class="date">Published on: April 18, 2025</p>
+            <p class="summary">We are excited to announce that the school will reopen on May 1st after the summer break. Please ensure that all students are ready for the new academic year!</p>
+            <a href="#" class="read-more">Read More...</a>
+        </div>
+    </div>
+
+    <div class="news-article">
+        <img src="image/admissions.jpg" alt="New Admissions" class="news-image">
+        <div class="news-content">
+            <h3><a href="#">New Admissions for 2082 Open Now!</a></h3>
+            <p class="date">Published on: April 15, 2025</p>
+            <p class="summary">We are now accepting new admissions for the academic year 2082s. Interested parents and guardians can apply online or visit the school for more details.</p>
+            <a href="#" class="read-more">Read More...</a>
+        </div>
+    </div>
+
+    <!-- Pagination for news -->
+    <div class="pagination">
+        <a href="#" class="prev">Previous</a>
+        <a href="#" class="next">Next</a>
+    </div>
+</div>
+<div class="map-section">
+    <h2>Find Us Here</h2>
+    <div class="map-container">
+        <!-- Embed Google Map -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14133.471243411912!2d84.19608368862305!3d27.67502470151472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399456ce7d000001%3A0x8450e6b7d036933e!2sJanajyoti%20Namuna%20Secondary%20School!5e0!3m2!1sen!2snp!4v1745344919928!5m2!1sen!2snp" 
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+</div>
+
+    <footer style="background-color: #4f8bf9; color: white; text-align: center; padding: 15px; width: 100%; margin-top: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;">
+        <p>&copy; 2025 Shree Jana Jyoti Namuna Secondary School. All Rights Reserved.</p>
+        <p>
+            <a href="index.html" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Home</a> |
+            <a href="#" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Privacy Policy</a> |
+            <a href="#" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Terms of Service</a>
+        </p>
+        <p>
+            <a href="https://www.facebook.com/share/1EFB78GBa4/" target="_blank" style="color: white; margin: 0 10px; font-size: 20px;">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="mailto:jananamuna@gmail.com" style="color: white; margin: 0 10px; font-size: 20px;">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </p>
+    </footer>
+</body>
+
+</html>
