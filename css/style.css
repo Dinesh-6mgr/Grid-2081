@@ -181,7 +181,7 @@ nav ul li a:hover {
     }
 
     .firstsection {
-        padding: 90px 20px 30px;
+        padding: 50px 20px 30px;
     }
 
     .school {
@@ -192,8 +192,8 @@ nav ul li a:hover {
     }
 
     .sidebar {
-        top: 80px;
-        width: 220px;
+        top: 90px;
+        width: fit-content;
         left: -220px;
     }
 
