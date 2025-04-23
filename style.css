@@ -202,7 +202,7 @@ footer {
     }
 
     .firstsection {
-        padding: 90px 20px 30px;
+        padding: 50px 20px 30px;
     }
 
     .school {
@@ -213,8 +213,8 @@ footer {
     }
 
     .sidebar {
-        top: 80px;
-        width: 220px;
+        top: 90px;
+        width: fit-content;
         left: -220px;
     }
 
