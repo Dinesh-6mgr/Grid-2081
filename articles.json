@@ -1,0 +1,24 @@
+[
+    {
+      "title": "New Admissions for 2082 Open Now!",
+      "image": "image/admissions.jpg",
+      "date": "April 15, 2025",
+      "summary": "We are now accepting new admissions for the academic year 2082s. Interested parents and guardians can apply online or visit the school for more details.",
+      "link": "#"
+    },
+    {
+      "title": "Another News Article Title",
+      "image": "image/another-image.jpg",
+      "date": "April 20, 2025",
+      "summary": "Details about the second article.",
+      "link": "#"
+    },
+    {
+      "title": "New Scholarship Opportunity Announced",
+      "image": "image/scholarship.jpg",
+      "date": "April 25, 2025",
+      "summary": "A new scholarship has been announced for students applying for the upcoming semester. Apply now for more details.",
+      "link": "#"
+    }
+  ]
+  
