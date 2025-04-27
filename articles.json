@@ -1,58 +1,86 @@
 [
   {
-    "title": "Demo 2",
+    "title": "Annual Science Fair Announced",
     "image": "image/logo.png",
-    "date": "April 25, 2025",
-    "summary": "A new scholarship has been announced for students applying for the upcoming semester. Apply now for more details.",
+    "date": "April 10, 2025",
+    "summary": "Get ready for the Annual Science Fair! Students are encouraged to register their projects by next month.",
     "link": "#"
   },
   {
-    "title": "New Admissions for 2082 Open Now!",
+    "title": "School Sports Week Coming Soon",
     "image": "image/image.png",
+    "date": "April 12, 2025",
+    "summary": "The school’s sports week kicks off this May. Exciting games and prizes await!",
+    "link": "#"
+  },
+  {
+    "title": "New Library Books Arrived",
+    "image": "image/school.png",
     "date": "April 15, 2025",
-    "summary": "We are now accepting new admissions for the academic year 2082s. Interested parents and guardians can apply online or visit the school for more details.",
+    "summary": "Hundreds of new books have been added to the school library. Visit and explore now!",
     "link": "#"
   },
   {
-    "title": "Another News Article Title",
-    "image": "image/another-image.jpg",
+    "title": "Parent-Teacher Meeting Scheduled",
+    "image": "image/logo.png",
+    "date": "April 18, 2025",
+    "summary": "A parent-teacher meeting will be held next week to discuss students' progress.",
+    "link": "#"
+  },
+  {
+    "title": "Art Exhibition Opening Soon",
+    "image": "image/image.png",
     "date": "April 20, 2025",
-    "summary": "Details about the second article.",
+    "summary": "Students’ artwork will be displayed in the annual Art Exhibition. All are welcome!",
     "link": "#"
   },
   {
-    "title": "New Scholarship Opportunity Announced",
-    "image": "image/scholarship.jpg",
-    "date": "April 25, 2025",
-    "summary": "A new scholarship has been announced for students applying for the upcoming semester. Apply now for more details.",
+    "title": "Scholarship Applications Open",
+    "image": "image/school.png",
+    "date": "April 22, 2025",
+    "summary": "Applications for academic scholarships are now open. Apply before the deadline!",
     "link": "#"
   },
   {
-    "title": "Demo",
-    "image": "image/scholarship.jpg",
-    "date": "April 25, 2025",
-    "summary": "A new scholarship has been announced for students applying for the upcoming semester. Apply now for more details.",
-    "link": "#"
-  },
-{
-    "title": "Another News Article Title",
-    "image": "image/another-image.jpg",
-    "date": "April 20, 2025",
-    "summary": "Details about the second article.",
+    "title": "New Computer Lab Inaugurated",
+    "image": "image/logo.png",
+    "date": "April 24, 2025",
+    "summary": "A state-of-the-art computer lab has been inaugurated for better learning experiences.",
     "link": "#"
   },
   {
-    "title": "New Scholarship Opportunity Announced",
-    "image": "image/scholarship.jpg",
-    "date": "April 25, 2025",
-    "summary": "A new scholarship has been announced for students applying for the upcoming semester. Apply now for more details.",
+    "title": "Summer Camp Registrations Open",
+    "image": "image/image.png",
+    "date": "April 26, 2025",
+    "summary": "Join the fun this summer! Registrations for the summer camp are now open.",
     "link": "#"
   },
   {
-    "title": "Demo",
-    "image": "image/scholarship.jpg",
-    "date": "April 25, 2025",
-    "summary": "A new scholarship has been announced for students applying for the upcoming semester. Apply now for more details.",
+    "title": "New Cafeteria Menu Released",
+    "image": "image/school.png",
+    "date": "April 27, 2025",
+    "summary": "The cafeteria has introduced a new healthy menu for students and staff.",
     "link": "#"
   },
+  {
+    "title": "Alumni Meet 2025 Announced",
+    "image": "image/logo.png",
+    "date": "April 28, 2025",
+    "summary": "We are excited to announce the Alumni Meet 2025. Former students are invited to register.",
+    "link": "#"
+  },
+  {
+    "title": "Environmental Awareness Campaign",
+    "image": "image/image.png",
+    "date": "April 29, 2025",
+    "summary": "An environmental campaign will be held next week. Let’s make our planet greener together!",
+    "link": "#"
+  },
+  {
+    "title": "New Robotics Club Formed",
+    "image": "image/school.png",
+    "date": "April 30, 2025",
+    "summary": "A Robotics Club has been formed for tech enthusiasts. Join and build the future!",
+    "link": "#"
+  }
 ]
