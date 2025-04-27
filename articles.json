@@ -33,5 +33,26 @@
     "date": "April 25, 2025",
     "summary": "A new scholarship has been announced for students applying for the upcoming semester. Apply now for more details.",
     "link": "#"
-  }
+  },
+{
+    "title": "Another News Article Title",
+    "image": "image/another-image.jpg",
+    "date": "April 20, 2025",
+    "summary": "Details about the second article.",
+    "link": "#"
+  },
+  {
+    "title": "New Scholarship Opportunity Announced",
+    "image": "image/scholarship.jpg",
+    "date": "April 25, 2025",
+    "summary": "A new scholarship has been announced for students applying for the upcoming semester. Apply now for more details.",
+    "link": "#"
+  },
+  {
+    "title": "Demo",
+    "image": "image/scholarship.jpg",
+    "date": "April 25, 2025",
+    "summary": "A new scholarship has been announced for students applying for the upcoming semester. Apply now for more details.",
+    "link": "#"
+  },
 ]
