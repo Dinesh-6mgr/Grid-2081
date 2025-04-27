@@ -79,23 +79,74 @@
         <p class="p" style="text-align: right;">Warm regards,<br>Shree Jana Jyoti Namuna Secondary School</p>
     </div>
 <hr style="border: 1px solid black;"> 
-    <!-- News Section -->
-    <div id="news-container"></div> <!-- Articles will go here -->
+   /* Container for each article */
+.news-article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd; /* Light border for separation */
+    border-radius: 10px; /* Rounded corners for the article container */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-<!-- Pagination buttons -->
-<div class="pagination">
-    <button id="prev-button" style="display:none;">Previous</button>
-    <button id="next-button" style="display:none;">Next</button>
-</div>
+.news-article:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
 
-<style>
+/* Image Styling */
+.news-article img {
+    width: 100%;                  /* Ensures the image takes up the full width of its container */
+    max-width: 800px;             /* Prevents the image from becoming too large */
+    height: auto;                 /* Maintains aspect ratio */
+    object-fit: cover;            /* Ensures image covers the container while maintaining aspect ratio */
+    border-radius: 10px;          /* Rounded corners for images */
+    margin-bottom: 15px;          /* Space between image and text */
+}
+
+/* Title and summary styling */
+.news-article h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #333;                  /* Dark text for contrast */
+}
+
+.news-article p.date {
+    font-size: 0.9em;
+    color: #777;                  /* Lighter text for the date */
+}
+
+.news-article p.summary {
+    font-size: 1em;
+    color: #555;                  /* Slightly darker text for summary */
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Read more link styling */
+.news-article .read-more {
+    font-size: 1em;
+    color: #4CAF50;               /* Green color for the link */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.news-article .read-more:hover {
+    color: #45a049;               /* Darker green on hover */
+}
+
+/* Pagination Styling */
 .pagination {
     margin-top: 20px;
     text-align: center;
 }
 
 .pagination button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;     /* Green button color */
     color: white;
     padding: 10px 20px;
     margin: 5px;
@@ -103,72 +154,17 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 .pagination button:hover {
-    background-color: #45a049;
+    background-color: #45a049;     /* Slightly darker green on hover */
 }
 
 .pagination button:disabled {
-    background-color: #ccc;
+    background-color: #ccc;        /* Disabled button color */
     cursor: not-allowed;
 }
-</style>
-
-<script>
-    let currentIndex = 0;
-    const articlesPerPage = 3;
-
-    fetch('articles.json')
-      .then(response => response.json())
-      .then(articles => {
-        const container = document.getElementById('news-container');
-        const prevButton = document.getElementById('prev-button');
-        const nextButton = document.getElementById('next-button');
-
-        function showArticles(startIndex) {
-            container.innerHTML = '';
-            const articlesToShow = articles.slice(startIndex, startIndex + articlesPerPage);
-            articlesToShow.forEach(article => {
-              const articleHTML = `
-                <div class="news-article">
-                  <img src="${article.image}" alt="${article.title}" class="news-image">
-                  <div class="news-content">
-                    <h3><a href="${article.link}">${article.title}</a></h3>
-                    <p class="date">Published on: ${article.date}</p>
-                    <p class="summary">${article.summary}</p>
-                    <a href="${article.link}" class="read-more">Read More...</a>
-                  </div>
-                </div>
-              `;
-              container.innerHTML += articleHTML;
-            });
-
-            // Update button visibility
-            prevButton.style.display = startIndex > 0 ? 'inline-block' : 'none';
-            nextButton.style.display = (startIndex + articlesPerPage) < articles.length ? 'inline-block' : 'none';
-        }
-
-        showArticles(currentIndex);
-
-        prevButton.addEventListener('click', () => {
-          if (currentIndex >= articlesPerPage) {
-            currentIndex -= articlesPerPage;
-            showArticles(currentIndex);
-          }
-        });
-
-        nextButton.addEventListener('click', () => {
-          if (currentIndex + articlesPerPage < articles.length) {
-            currentIndex += articlesPerPage;
-            showArticles(currentIndex);
-          }
-        });
-      })
-      .catch(error => console.error('Error loading articles:', error));
-</script>
-
-<hr style="border: 1px solid black;">
     <br>
     <br>
     <!-- Embed the map for Janajyoti Namuna Secondary School -->
