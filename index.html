@@ -80,63 +80,93 @@
     </div>
 
     <!-- News Section -->
-    <div id="news-container"></div> <!-- This is where your articles will go -->
+    <div id="news-container"></div> <!-- Articles will go here -->
 
-    <!-- Pagination for news -->
-    <div class="pagination">
-        <button id="next-button" style="display:none;">View Next 3 News</button>
-    </div>
+<!-- Pagination buttons -->
+<div class="pagination">
+    <button id="prev-button" style="display:none;">Previous</button>
+    <button id="next-button" style="display:none;">Next</button>
+</div>
 
-    <script>
-        let currentIndex = 0;  // Track the current set of articles being shown
-        const articlesPerPage = 3;  // Number of articles to show per page
+<style>
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
 
-        fetch('articles.json')
-          .then(response => response.json())
-          .then(articles => {
-            const container = document.getElementById('news-container');
+.pagination button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-            function showArticles(startIndex) {
-                container.innerHTML = '';  // Clear the current articles
-                const articlesToShow = articles.slice(startIndex, startIndex + articlesPerPage);
-                articlesToShow.forEach(article => {
-                  const articleHTML = `
-                    <div class="news-article">
-                      <img src="${article.image}" alt="${article.title}" class="news-image">
-                      <div class="news-content">
-                        <h3><a href="${article.link}">${article.title}</a></h3>
-                        <p class="date">Published on: ${article.date}</p>
-                        <p class="summary">${article.summary}</p>
-                        <a href="${article.link}" class="read-more">Read More...</a>
-                      </div>
-                    </div>
-                  `;
-                  container.innerHTML += articleHTML;  // Add the article to the container
-                });
+.pagination button:hover {
+    background-color: #45a049;
+}
 
-                // Hide or show the "Next" button depending on whether there are more articles to load
-                const nextButton = document.getElementById('next-button');
-                if (currentIndex + articlesPerPage < articles.length) {
-                  nextButton.style.display = 'block';  // Show the "Next" button
-                } else {
-                  nextButton.style.display = 'none';  // Hide the "Next" button if no more articles
-                }
-            }
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+</style>
 
-            // Show the first set of articles
-            showArticles(currentIndex);
+<script>
+    let currentIndex = 0;
+    const articlesPerPage = 3;
 
-            // Handle the "Next" button click
-            document.getElementById('next-button').addEventListener('click', () => {
-              currentIndex += articlesPerPage;
-              showArticles(currentIndex);
+    fetch('articles.json')
+      .then(response => response.json())
+      .then(articles => {
+        const container = document.getElementById('news-container');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+
+        function showArticles(startIndex) {
+            container.innerHTML = '';
+            const articlesToShow = articles.slice(startIndex, startIndex + articlesPerPage);
+            articlesToShow.forEach(article => {
+              const articleHTML = `
+                <div class="news-article">
+                  <img src="${article.image}" alt="${article.title}" class="news-image">
+                  <div class="news-content">
+                    <h3><a href="${article.link}">${article.title}</a></h3>
+                    <p class="date">Published on: ${article.date}</p>
+                    <p class="summary">${article.summary}</p>
+                    <a href="${article.link}" class="read-more">Read More...</a>
+                  </div>
+                </div>
+              `;
+              container.innerHTML += articleHTML;
             });
-          })
-          .catch(error => console.error('Error loading articles:', error));
-    </script>
- </br>
-    <!-- Map Section -->
-    <h1>Janajyoti Namuna Secondary School Location</h1>
+
+            // Update button visibility
+            prevButton.style.display = startIndex > 0 ? 'inline-block' : 'none';
+            nextButton.style.display = (startIndex + articlesPerPage) < articles.length ? 'inline-block' : 'none';
+        }
+
+        showArticles(currentIndex);
+
+        prevButton.addEventListener('click', () => {
+          if (currentIndex >= articlesPerPage) {
+            currentIndex -= articlesPerPage;
+            showArticles(currentIndex);
+          }
+        });
+
+        nextButton.addEventListener('click', () => {
+          if (currentIndex + articlesPerPage < articles.length) {
+            currentIndex += articlesPerPage;
+            showArticles(currentIndex);
+          }
+        });
+      })
+      .catch(error => console.error('Error loading articles:', error));
+</script>
     <br>
     <br>
     <!-- Embed the map for Janajyoti Namuna Secondary School -->
