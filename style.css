@@ -282,14 +282,14 @@ footer {
 /* Read more link styling */
 .news-article .read-more {
     font-size: 1em;
-    color: #4CAF50;               /* Green color for the link */
+    color: #4f8bf9;               /* Blue color for the link */
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .news-article .read-more:hover {
-    color: #45a049;               /* Darker green on hover */
+    color: #3a74d1;               /* Darker blue on hover */
 }
 
 /* Pagination Styling */
@@ -299,7 +299,7 @@ footer {
 }
 
 .pagination button {
-    background-color: #4CAF50;     /* Green button color */
+    background-color: #4f8bf9;     /* Blue button color */
     color: white;
     padding: 10px 20px;
     margin: 5px;
@@ -311,7 +311,7 @@ footer {
 }
 
 .pagination button:hover {
-    background-color: #45a049;     /* Slightly darker green on hover */
+    background-color: #3a74d1;     /* Slightly darker blue on hover */
 }
 
 .pagination button:disabled {
