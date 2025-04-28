@@ -3,207 +3,103 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jana Jyoti Namuna Secondary School</title>
-    <link rel="icon" href="image/logo.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>My School App</title>
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
-    
-    <script>
-        let deferredPrompt;
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            const installBtn = document.getElementById('install-button');
-            installBtn.style.display = 'block';
+    <!-- Android Theme Color -->
+    <meta name="theme-color" content="#4f8bf9">
 
-            installBtn.addEventListener('click', () => {
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    deferredPrompt = null;
-                });
-            });
-        });
+    <!-- iOS Web App Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="image/logo.png">
 
-        window.addEventListener('appinstalled', (evt) => {
-            document.getElementById('install-button').style.display = 'none';
-        });
-    </script>
-    
-    <!-- Matomo -->
-    <script>
-        var _paq = window._paq = window._paq || [];
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u = "https://jananamunaschool.matomo.cloud/";
-            _paq.push(['setTrackerUrl', u + 'matomo.php']);
-            _paq.push(['setSiteId', '1']);
-            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-            g.async = true;
-            g.src = 'https://cdn.matomo.cloud/jananamunaschool.matomo.cloud/matomo.js';
-            s.parentNode.insertBefore(g, s);
-        })();
-    </script>
-    <!-- End Matomo Code -->
+    <!-- Stylesheets & Scripts -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+    <!-- For enabling PWA installation popup -->
+    <link rel="icon" href="image/logo.png">
 </head>
 
-<body class="body">
-    <header>
-        <!-- Navbar with logo -->
-        <nav class="a">
-            <img src="image/logo.png" alt="School Logo" style="width: 80px; height: 80px; margin-left: 10px; align-items: center;">
-            <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-        </nav>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-        <!-- Sidebar -->
-        <div class="sidebar" id="sidebar">
-            <h3>Menu</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="html/nur.html">Nursery</a></li>
-                <li><a href="html/kg.html">KG</a></li>
-                <li><a href="html/class1.html">Class 1</a></li>
-                <li><a href="html/class2.html">Class 2</a></li>
-                <li><a href="html/class3.html">Class 3</a></li>
-                <li><a href="html/class4.html">Class 4</a></li>
-                <li><a href="html/class5.html">Class 5</a></li>
-                <li><a href="html/class6.html">Class 6</a></li>
-                <li><a href="html/class7.html">Class 7</a></li>
-                <li><a href="html/class8.html">Class 8</a></li>
-                <li><a href="html/class9.html">Class 9</a></li>
-                <li><a href="html/class10.html">Class 10</a></li>
-            </ul>
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <!-- Map and News Content -->
+        <div id="news">
+            <!-- Example of News Articles with Hover -->
+            <div class="news-article">
+                <img src="image/article.jpg" alt="Article Image">
+                <h3>Article Title</h3>
+                <p class="date">Published on: April 28, 2025</p>
+                <p class="summary">This is a brief summary of the article...</p>
+                <a href="#" class="read-more">Read more</a>
+            </div>
         </div>
-
-        <script>
-            function toggleSidebar() {
-                let sidebar = document.getElementById("sidebar");
-                let content = document.getElementById("content");
-                sidebar.classList.toggle("show");
-                content.classList.toggle("shift");
-            }
-        </script>
-    </header>
-
-    <!-- Main content -->
-    <div class="firstsection">
-        <img src="image/school.png" alt="tight-image" class="school" style="padding: 5px;">
-        <h3 style="margin: 5px; text-align: justify;">Welcome to <br>Shree Jana Jyoti Namuna Secondary School!</h3>
-        <p class="p" style="text-align: justify;">
-            Dear Students, Parents, and Visitors,<br><br>
-            It is with great pride and enthusiasm that we welcome you to Shree Jana Jyoti Namuna
-            Secondary School, a place of knowledge, growth, and excellence...
-            <br><br>
-            📚 <span class="s">"Education is the key to unlocking infinite possibilities!"</span>
-        </p>
-        <p class="p" style="text-align: right;">Warm regards,<br>Shree Jana Jyoti Namuna Secondary School</p>
+        
+        <!-- Map Section -->
+        <div id="map">
+            <iframe src="https://maps.google.com/maps?q=Kathmandu&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
     </div>
 
-    <hr style="border: 1px solid black;">
-    <h1 style="font-family: 'Arial', sans-serif;
-        font-size: 36px;
-        color: #333;
-        text-align: center;
-        background-color: #f4f4f4;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">Latest news</h1>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 My School App. All rights reserved.</p>
+    </footer>
 
-    <div id="news-container"></div> <!-- Articles will go here -->  
+    <!-- PWA Installation Code (JavaScript) -->
+    <script>
+        let deferredPrompt;
+        const installButton = document.createElement('button');
+        installButton.textContent = 'Install App';
+        installButton.style.position = 'fixed';
+        installButton.style.bottom = '20px';
+        installButton.style.left = '20px';
+        installButton.style.padding = '10px';
+        installButton.style.background = '#4f8bf9';
+        installButton.style.color = 'white';
+        installButton.style.border = 'none';
+        installButton.style.borderRadius = '5px';
+        installButton.style.cursor = 'pointer';
 
-    <!-- Pagination buttons -->  
-    <div class="pagination">  
-        <button id="prev-button" style="display:none;">Previous</button>  
-        <button id="next-button" style="display:none;">Next</button>  
-    </div>  
-    
-    <style>  
-    .pagination {  
-        margin-top: 20px;  
-        text-align: center;  
-    }  
-    
-    .pagination button {  
-        background-color: #4f8bf9; /* blue */  
-        color: white;  
-        padding: 10px 20px;  
-        margin: 5px;  
-        border: none;  
-        border-radius: 5px;  
-        cursor: pointer;  
-        font-size: 16px;  
-    }  
-    
-    .pagination button:hover {  
-        background-color: 4f8bf9;  
-    }  
-    
-    .pagination button:disabled {  
-        background-color: #ccc;  
-        cursor: not-allowed;  
-    }  
-    </style>  
-    
-    <script>  
-        let currentIndex = 0;  
-        const articlesPerPage = 3;  
+        // Display the install button if the PWA is ready
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault(); // Prevent the default prompt
+            deferredPrompt = e; // Save the event for later
+            document.body.appendChild(installButton);
+        });
 
-        fetch('articles.json')  
-        .then(response => response.json())  
-        .then(articles => {  
-            const container = document.getElementById('news-container');  
-            const prevButton = document.getElementById('prev-button');  
-            const nextButton = document.getElementById('next-button');  
+        installButton.addEventListener('click', () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt(); // Show the install prompt
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    } else {
+                        console.log('User dismissed the install prompt');
+                    }
+                });
+            }
+        });
 
-            function showArticles(startIndex) {  
-                container.innerHTML = '';  
-                const articlesToShow = articles.slice(startIndex, startIndex + articlesPerPage);  
-                articlesToShow.forEach(article => {  
-                    const articleHTML = `  
-                    <div class="news-article">  
-                        <img src="${article.image}" alt="${article.title}" class="news-image">  
-                        <div class="news-content">  
-                            <h3><a href="${article.link}">${article.title}</a></h3>  
-                            <p class="date">Published on: ${article.date}</p>  
-                            <p class="summary">${article.summary}</p>  
-                            <a href="${article.link}" class="read-more">Read More...</a>  
-                        </div>  
-                    </div>  
-                    `;  
-                    container.innerHTML += articleHTML;  
-                });  
+        // Hiding install button after app is installed
+        window.addEventListener('appinstalled', () => {
+            installButton.style.display = 'none';
+        });
+    </script>
+</body>
 
-                // Update button visibility  
-                prevButton.style.display = startIndex > 0 ? 'inline-block' : 'none';  
-                nextButton.style.display = (startIndex + articlesPerPage) < articles.length ? 'inline-block' : 'none';  
-            }  
-
-            showArticles(currentIndex);  
-
-            prevButton.addEventListener('click', () => {  
-                if (currentIndex >= articlesPerPage) {  
-                    currentIndex -= articlesPerPage;  
-                    showArticles(currentIndex);  
-                }  
-            });  
-
-            nextButton.addEventListener('click', () => {  
-                if (currentIndex + articlesPerPage < articles.length) {  
-                    currentIndex += articlesPerPage;  
-                    showArticles(currentIndex);  
-                }  
-            });  
-        })  
-        .catch(error => console.error('Error loading articles:', error));  
-    </script>  
-
-    <hr style="border: 1px solid black;">
-    <br>
-    <br>
-    <!-- Embed the map for Janajyoti Namuna Secondary School -->
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14133.973970564772!2d84.1808081!3d27.6711385!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399456ce7d000001%3A0x8450e6b7d036933e!2sJanajyoti%20Namuna%20Secondary%20School!5e0!3m2!1sen!2
+</html>
