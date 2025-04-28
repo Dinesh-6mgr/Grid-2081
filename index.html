@@ -259,4 +259,41 @@ window.addEventListener('beforeinstallprompt', (e) => {
         deferredPrompt = null;
     });
 });
+</script><script>
+    // Check if user is on the last page
+    let isLastPage = false;
+
+    fetch('articles.json')
+        .then(response => response.json())
+        .then(articles => {
+            // articlesPerPage is already declared above
+            const totalPages = Math.ceil(articles.length / articlesPerPage);
+            
+            function updateLastPageStatus() {
+                isLastPage = Math.floor(currentIndex / articlesPerPage) + 1 === totalPages;
+            }
+
+            updateLastPageStatus(); // Set initial value
+
+            document.getElementById('prev-button').addEventListener('click', () => {
+                currentIndex -= articlesPerPage;
+                showArticles(currentIndex);
+                updateLastPageStatus();
+            });
+
+            document.getElementById('next-button').addEventListener('click', () => {
+                currentIndex += articlesPerPage;
+                showArticles(currentIndex);
+                updateLastPageStatus();
+            });
+        });
+
+    // Handle back button or close tab
+    window.addEventListener('beforeunload', function (e) {
+        if (isLastPage) {
+            e.preventDefault(); 
+            e.returnValue = ''; // This shows the confirm dialog
+            return '';
+        }
+    });
 </script>
