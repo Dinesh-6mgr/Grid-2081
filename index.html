@@ -1,272 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Download Jananamuna App</title>
-
-  <!-- Font Awesome CDN for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f7fc;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Navbar */
-    nav {
-      background-color: #4CAF50;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    nav img {
-      height: 40px;
-      width: 40px;
-      object-fit: contain;
-      border-radius: 50%;
-    }
-
-    nav .title {
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-      margin-left: 10px;
-      letter-spacing: 1px;
-      flex: 1;
-      text-align: center;
-      margin-right: 40px;
-    }
-
-    /* Slideshow Section */
-    .slideshow-container {
-      width: 100%;
-      max-width: 800px;
-      margin: 20px auto;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .slideshow-container img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* Main Content */
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .container {
-      text-align: center;
-      background: #fff;
-      padding: 40px 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 400px;
-      margin-top: 20px;
-    }
-
-    h1 {
-      margin-bottom: 20px;
-      font-size: 24px;
-      color: #333;
-    }
-
-    .download-btn {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 18px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s;
-    }
-
-    .download-btn:hover {
-      background-color: #45a049;
-      transform: scale(1.02);
-    }
-
-    .download-btn:disabled {
-      background-color: #9e9e9e;
-      cursor: not-allowed;
-    }
-
-    .download-status {
-      margin-top: 20px;
-      width: 100%;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .progress-bar {
-      width: 100%;
-      background-color: #e0e0e0;
-      height: 8px;
-      border-radius: 5px;
-      overflow: hidden;
-      margin-bottom: 10px;
-    }
-
-    .progress-bar-fill {
-      width: 0%;
-      height: 100%;
-      background-color: #4CAF50;
-      transition: width 0.4s ease;
-    }
-
-    #progressText {
-      font-size: 14px;
-      color: #333;
-    }
-
-    .thank-you {
-      margin-top: 20px;
-      color: green;
-      font-size: 16px;
-      display: none;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #4CAF50;
-      color: white;
-      text-align: center;
-      padding: 15px 10px;
-      font-size: 14px;
-    }
-
-    .footer-icons a {
-      color: white;
-      margin: 0 10px;
-      font-size: 20px;
-      transition: color 0.3s;
-    }
-
-    .footer-icons a:hover {
-      color: #ddd;
-    }
-
-    @media (max-width: 500px) {
-      nav .title {
-        font-size: 18px;
-      }
-      nav img {
-        height: 35px;
-        width: 35px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jana Jyoti Namuna Secondary School</title>
+    <link rel="icon" href="image/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u = "https://jananamunaschool.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.async = true;
+            g.src = 'https://cdn.matomo.cloud/jananamunaschool.matomo.cloud/matomo.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
 </head>
 
-<body>
+<body class="body">
+    <header>
+        <!-- Navbar with logo -->
+        <nav class="a">
+            <img src="image/logo.png" alt="School Logo" style="width: 80px; height: 80px; margin-left: 10px; align-items: center;">
+            <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+        </nav>
 
-  <!-- Navbar -->
-  <nav>
-    <img src="logo.png" alt="Logo">
-    <div class="title">Jananamuna App</div>
-  </nav>
-
-  <!-- Slideshow -->
-  <div class="slideshow-container">
-    <img id="slideImage" src="1.jpg" alt="App Screenshot">
-  </div>
-
-  <!-- Main Content -->
-  <main>
-    <div class="container">
-      <h1>Download the Jananamuna App</h1>
-      <button id="downloadBtn" class="download-btn">Download APK</button>
-
-      <div id="downloadStatus" class="download-status">
-        <div class="progress-bar">
-          <div id="progressFill" class="progress-bar-fill"></div>
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="html/nur.html">Nursery</a></li>
+                <li><a href="html/kg.html">KG</a></li>
+                <li><a href="html/class1.html">Class 1</a></li>
+                <li><a href="html/class2.html">Class 2</a></li>
+                <li><a href="html/class3.html">Class 3</a></li>
+                <li><a href="html/class4.html">Class 4</a></li>
+                <li><a href="html/class5.html">Class 5</a></li>
+                <li><a href="html/class6.html">Class 6</a></li>
+                <li><a href="html/class7.html">Class 7</a></li>
+                <li><a href="html/class8.html">Class 8</a></li>
+                <li><a href="html/class9.html">Class 9</a></li>
+                <li><a href="html/class10.html">Class 10</a></li>
+            </ul>
         </div>
-        <span id="progressText">0%</span>
-      </div>
 
-      <div id="thankYou" class="thank-you">Thank you for downloading!</div>
+        <script>
+            function toggleSidebar() {
+                let sidebar = document.getElementById("sidebar");
+                let content = document.getElementById("content");
+                sidebar.classList.toggle("show");
+                content.classList.toggle("shift");
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </header>
+
+    <!-- Main content -->
+    <div class="firstsection">
+        <img src="image/school.png" alt="tight-image" class="school" style="padding: 5px;">
+        <h3 style="margin: 5px; text-align: justify;">Welcome to <br>Shree Jana Jyoti Namuna Secondary School!</h3>
+        <p class="p" style="text-align: justify;">
+            Dear Students, Parents, and Visitors,<br><br>
+            It is with great pride and enthusiasm that we welcome you to Shree Jana Jyoti Namuna
+            Secondary School, a place of knowledge, growth, and excellence...
+            <br><br>
+            📚 <span class="s">"Education is the key to unlocking infinite possibilities!"</span>
+        </p>
+        <p class="p" style="text-align: right;">Warm regards,<br>Shree Jana Jyoti Namuna Secondary School</p>
     </div>
-  </main>
+<hr style="border: 1px solid black;"> 
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Andnamuna School. All rights reserved.</p>
-    <div class="footer-icons">
-      <a href="https://www.facebook.com/share/1HbCEbp6sy/" target="_blank">
-        <i class="fab fa-facebook"></i>
-      </a>
-      <a href="mailto:jananamuna@gmail.com">
-        <i class="fas fa-envelope"></i>
-      </a>
-    </div>
-    <p><em>Mith</em></p>
-  </footer>
+   
+.    <div id="news-container"></div> <!-- Articles will go here -->  
+  
+<!-- Pagination buttons -->  
+<div class="pagination">  
+    <button id="prev-button" style="display:none;">Previous</button>  
+    <button id="next-button" style="display:none;">Next</button>  
+</div>  
+  
+<style>  
+.pagination {  
+    margin-top: 20px;  
+    text-align: center;  
+}  
+  
+.pagination button {  
+    background-color: #4f8bf9; /* blue */  
+    color: white;  
+    padding: 10px 20px;  
+    margin: 5px;  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    font-size: 16px;  
+}  
+  
+.pagination button:hover {  
+    background-color: 4f8bf9;  
+}  
+  
+.pagination button:disabled {  
+    background-color: #ccc;  
+    cursor: not-allowed;  
+}  
+</style>  
+  
+<script>  
+    let currentIndex = 0;  
+    const articlesPerPage = 3;  
+  
+    fetch('articles.json')  
+      .then(response => response.json())  
+      .then(articles => {  
+        const container = document.getElementById('news-container');  
+        const prevButton = document.getElementById('prev-button');  
+        const nextButton = document.getElementById('next-button');  
+  
+        function showArticles(startIndex) {  
+            container.innerHTML = '';  
+            const articlesToShow = articles.slice(startIndex, startIndex + articlesPerPage);  
+            articlesToShow.forEach(article => {  
+              const articleHTML = `  
+                <div class="news-article">  
+                  <img src="${article.image}" alt="${article.title}" class="news-image">  
+                  <div class="news-content">  
+                    <h3><a href="${article.link}">${article.title}</a></h3>  
+                    <p class="date">Published on: ${article.date}</p>  
+                    <p class="summary">${article.summary}</p>  
+                    <a href="${article.link}" class="read-more">Read More...</a>  
+                  </div>  
+                </div>  
+              `;  
+              container.innerHTML += articleHTML;  
+            });  
+  
+            // Update button visibility  
+            prevButton.style.display = startIndex > 0 ? 'inline-block' : 'none';  
+            nextButton.style.display = (startIndex + articlesPerPage) < articles.length ? 'inline-block' : 'none';  
+        }  
+  
+        showArticles(currentIndex);  
+  
+        prevButton.addEventListener('click', () => {  
+          if (currentIndex >= articlesPerPage) {  
+            currentIndex -= articlesPerPage;  
+            showArticles(currentIndex);  
+          }  
+        });  
+  
+        nextButton.addEventListener('click', () => {  
+          if (currentIndex + articlesPerPage < articles.length) {  
+            currentIndex += articlesPerPage;  
+            showArticles(currentIndex);  
+          }  
+        });  
+      })  
+      .catch(error => console.error('Error loading articles:', error));  
+</script>  
+  
+<hr style="border: 1px solid black;">
+    <br>
+    <br>
+    <!-- Embed the map for Janajyoti Namuna Secondary School -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14133.973970564772!2d84.1808081!3d27.6711385!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399456ce7d000001%3A0x8450e6b7d036933e!2sJanajyoti%20Namuna%20Secondary%20School!5e0!3m2!1sen!2snp!4v1745726263989!5m2!1sen!2snp"
+      width="100%" height="400" style="border:0; display:block; margin: 0 auto;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-  <script>
-    // Slideshow JavaScript
-    const images = ["1.jpg", "2.jpg", "3.jpg"];
-    let currentImage = 0;
-    const slideImage = document.getElementById("slideImage");
-
-    setInterval(() => {
-      currentImage = (currentImage + 1) % images.length;
-      slideImage.src = images[currentImage];
-    }, 3000); // Change every 3 seconds
-
-    // Download button JavaScript
-    const downloadBtn = document.getElementById("downloadBtn");
-    const downloadStatus = document.getElementById("downloadStatus");
-    const progressFill = document.getElementById("progressFill");
-    const progressText = document.getElementById("progressText");
-    const thankYou = document.getElementById("thankYou");
-
-    downloadBtn.addEventListener("click", () => {
-      downloadBtn.disabled = true;
-      downloadStatus.style.display = "flex";
-      let progress = 0;
-
-      const interval = setInterval(() => {
-        progress += 10;
-        if (progress > 100) progress = 100;
-
-        progressFill.style.width = progress + "%";
-        progressText.innerText = progress + "%";
-
-        if (progress === 100) {
-          clearInterval(interval);
-          progressText.innerText = "Download Complete!";
-          thankYou.style.display = "block";
-
-          setTimeout(() => {
-            window.location.href = "Jananamuna.apk"; // Replace with your actual APK file
-          }, 1000);
-        }
-      }, 400);
-    });
-  </script>
-
+    <footer style="background-color: #4f8bf9; color: white; text-align: center; padding: 15px; width: 100%; margin-top: 20px; position: relative; bottom: 0; width: 100%;">
+        <p>&copy; 2025 Shree Jana Jyoti Namuna Secondary School. All Rights Reserved.</p>
+        <p>
+            <a href="index.html" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Home</a> |
+            <a href="#" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Privacy Policy</a> |
+            <a href="#" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Terms of Service</a>
+        </p>
+        <p>
+            <a href="https://www.facebook.com/share/1EFB78GBa4/" target="_blank" style="color: white; margin: 0 10px; font-size: 20px;">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="mailto:jananamuna@gmail.com" style="color: white; margin: 0 10px; font-size: 20px;">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </p>
+    </footer>
 </body>
+
 </html>
