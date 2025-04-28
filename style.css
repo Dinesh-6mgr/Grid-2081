@@ -252,13 +252,13 @@ footer {
 
 /* Image Styling */
 .news-article img {
-    width: 100%;                  /* Ensures the image takes up the full width of its container */
-    max-width: 800px;             /* Prevents the image from becoming too large */
-    height: auto;                 /* Maintains aspect ratio */
-    object-fit: cover;            /* Ensures image covers the container while maintaining aspect ratio */
-    border-radius: 10px;          /* Rounded corners for images */
-    margin-bottom: 15px;          /* Space between image and text */
+    width: 90vw;                /* 90% of the viewport width */
+    height: 90vh;               /* 90% of the viewport height */
+    object-fit: cover;          /* Maintain aspect ratio and cover the container */
+    border-radius: 5px;         /* Slightly curved corners */
+    margin-bottom: 15px;        /* Space between image and text */
 }
+
 
 /* Title and summary styling */
 .news-article h3 {
