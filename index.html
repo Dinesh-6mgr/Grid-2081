@@ -4,10 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#317EFB">
     <title>Jana Jyoti Namuna Secondary School</title>
     <link rel="icon" href="image/logo.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(function(registration) {
+        console.log('ServiceWorker registration successful:', registration.scope);
+      }, function(error) {
+        console.log('ServiceWorker registration failed:', error);
+      });
+  }
+</script>
+
     <!-- Matomo -->
     <script>
         var _paq = window._paq = window._paq || [];
