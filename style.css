@@ -252,11 +252,14 @@ footer {
 
 /* Image Styling */
 .news-article img {
-    width: 90vw;                /* 90% of the viewport width */
-    height: 90vh;               /* 90% of the viewport height */
-    object-fit: cover;          /* Maintain aspect ratio and cover the container */
-    border-radius: 5px;         /* Slightly curved corners */
-    margin-bottom: 15px;        /* Space between image and text */
+    width: 90vw;                 /* 90% of the screen width */
+    height: 90vh;                /* 90% of the screen height */
+    object-fit: cover;           
+    border-radius: 5px;          /* Slight curve */
+    margin-bottom: 15px;         
+    display: block;              /* Makes it act like a block element */
+    margin-left: auto;           /* Center from left */
+    margin-right: auto;          /* Center from right */
 }
 
 
