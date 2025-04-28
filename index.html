@@ -11,15 +11,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="manifest" href="manifest.json">
 
-
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(function(registration) {
-        console.log('ServiceWorker registration successful:', registration.scope);
-      }, function(error) {
-        console.log('ServiceWorker registration failed:', error);
-      });
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(function(registration) {
+            console.log('ServiceWorker registered successfully:', registration.scope);
+          }).catch(function(error) {
+            console.log('ServiceWorker registration failed:', error);
+          });
+      }
+    </script>
+    
   }
 </script>
 

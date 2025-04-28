@@ -4,10 +4,15 @@ const urlsToCache = [
   '/index.html',
   '/style.css',
   '/image/logo.png',
-  // Add more files if needed like '/html/class1.html', '/html/class2.html', etc.
+  '/image/Image.png',
+  '/image/school.png',
+  '/html/class1.html',
+  '/html/class2.html',
+  '/js/html.js',
+  '/articles.json',
+  // Add other html pages if needed
 ];
 
-// Install the service worker
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -17,7 +22,6 @@ self.addEventListener('install', event => {
   );
 });
 
-// Fetch assets
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
