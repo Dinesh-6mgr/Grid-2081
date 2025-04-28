@@ -1,22 +1,21 @@
-self.addEventListener('install', function (event) {
+self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches.open('school-cache').then(function (cache) {
+        caches.open('my-school-cache').then((cache) => {
             return cache.addAll([
                 '/',
-                '/index.html',
-                '/style.css',
-                '/image/logo.png',
-                '/image/school.png',
-                '/manifest.json',
+                'index.html',
+                'style.css',
+                'image/logo.png',
+                'script.js',
             ]);
         })
     );
 });
 
-self.addEventListener('fetch', function (event) {
+self.addEventListener('fetch', (event) => {
     event.respondWith(
-        caches.match(event.request).then(function (response) {
-            return response || fetch(event.request);
+        caches.match(event.request).then((cachedResponse) => {
+            return cachedResponse || fetch(event.request);
         })
     );
 });
