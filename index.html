@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Jana Jyoti Namuna Secondary School</title>
     <link rel="icon" href="image/logo.png">
-    <!-- Link to the manifest file (inlined) -->
-    <link rel="manifest" href="mainfest.json">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Link to the manifest file (corrected) -->
+    <link rel="manifest" href="manifest.json">
 
-    <!-- Matomo -->
+    <!-- Matomo Analytics -->
     <script>
         var _paq = window._paq = window._paq || [];
         _paq.push(['trackPageView']);
@@ -25,7 +27,7 @@
         })();
     </script>
     <!-- End Matomo Code -->
-    
+
     <style>
         /* Basic CSS for PWA */
         .pagination {
@@ -45,12 +47,55 @@
         }
 
         .pagination button:hover {
-            background-color: 4f8bf9;
+            background-color: #3e7bbf; /* Slightly darker blue */
         }
 
         .pagination button:disabled {
             background-color: #ccc;
             cursor: not-allowed;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .sidebar.show {
+            display: block;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #444;
+        }
+
+        .toggle-btn {
+            font-size: 30px;
+            color: white;
+            background-color: #4f8bf9;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
