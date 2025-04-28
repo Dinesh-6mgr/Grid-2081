@@ -1,0 +1,20 @@
+{
+  "name": "Shree Jana Jyoti Namuna Secondary School",
+  "short_name": "Jana Jyoti School",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#4f8bf9",
+  "theme_color": "#4f8bf9",
+  "icons": [
+    {
+      "src": "image/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "image/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
