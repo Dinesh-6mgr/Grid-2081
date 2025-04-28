@@ -1,7 +1,7 @@
 {
   "name": "Grid 2081",
   "short_name": "Grid2081",
-  "start_url": "./index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#317EFB",
