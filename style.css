@@ -237,87 +237,99 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd; /* Light border for separation */
-    border-radius: 10px; /* Rounded corners for the article container */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px); /* Glass effect */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .news-article:hover {
-    transform: translateY(-5px); /* Slight lift effect on hover */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    transform: scale(1.02) translateY(-8px); /* Lift and slight zoom */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 /* Image Styling */
 .news-article img {
-    width: 90vw;                 /* 90% of the screen width */
-    height: 90vh;                /* 90% of the screen height */
-    object-fit: cover;           
-    border-radius: 5px;          /* Slight curve */
-    margin-bottom: 15px;         
-    display: block;              /* Makes it act like a block element */
-    margin-left: auto;           /* Center from left */
-    margin-right: auto;          /* Center from right */
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
 }
 
+.news-article img:hover {
+    transform: scale(1.05);
+}
 
 /* Title and summary styling */
 .news-article h3 {
-    font-size: 1.5em;
-    margin: 10px 0;
-    color: #333;                  /* Dark text for contrast */
+    font-size: 2em;
+    margin: 15px 0 10px;
+    color: #222;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .news-article p.date {
-    font-size: 0.9em;
-    color: #777;                  /* Lighter text for the date */
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 10px;
 }
 
 .news-article p.summary {
-    font-size: 1em;
-    color: #555;                  /* Slightly darker text for summary */
-    line-height: 1.6;
-    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #444;
+    text-align: center;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    padding: 0 10px;
 }
 
 /* Read more link styling */
 .news-article .read-more {
-    font-size: 1em;
-    color: #4f8bf9;               /* Blue color for the link */
+    font-size: 1.1em;
+    color: #4f8bf9;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .news-article .read-more:hover {
-    color: #3a74d1;               /* Darker blue on hover */
+    color: #3a74d1;
+    border-color: #3a74d1;
 }
 
 /* Pagination Styling */
 .pagination {
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
 }
 
 .pagination button {
-    background-color: #4f8bf9;     /* Blue button color */
+    background: linear-gradient(to right, #4f8bf9, #3a74d1);
     color: white;
     padding: 10px 20px;
     margin: 5px;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .pagination button:hover {
-    background-color: #3a74d1;     /* Slightly darker blue on hover */
+    background: linear-gradient(to right, #3a74d1, #2d5bbf);
+    transform: translateY(-2px);
 }
 
 .pagination button:disabled {
-    background-color: #ccc;        /* Disabled button color */
+    background-color: #ccc;
     cursor: not-allowed;
 }
