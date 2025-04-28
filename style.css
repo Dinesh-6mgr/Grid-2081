@@ -231,7 +231,8 @@ footer {
     .cancel-btn {  
         font-size: 18px;  
     }  
-}  
+}
+
 /* Container for each article */
 .news-article {
     display: flex;
