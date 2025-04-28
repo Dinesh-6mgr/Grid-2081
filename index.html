@@ -99,6 +99,25 @@
         window.addEventListener('appinstalled', () => {
             installButton.style.display = 'none';
         });
+
+        // Hide the Chrome navigation bar on load for PWA
+        window.addEventListener("load", () => {
+            if (window.matchMedia('(display-mode: standalone)').matches) {
+                document.body.style.margin = '0';
+                window.scrollTo(0, 1); // Scrolls the page slightly to hide the browser UI
+            }
+        });
+
+        // Service Worker registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then((registration) => {
+                    console.log('Service Worker registered:', registration);
+                })
+                .catch((error) => {
+                    console.log('Service Worker registration failed:', error);
+                });
+        }
     </script>
 </body>
 
