@@ -37,8 +37,8 @@
       s.parentNode.insertBefore(g, s);
     })();
   </script>
-</head>
 
+</head>
 <body class="body">
   <header>
     <!-- Navbar -->
@@ -253,57 +253,4 @@
       installBanner.style.padding = '20px';
       installBanner.style.textAlign = 'center';
       installBanner.style.zIndex = '10000';
-      installBanner.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3)';
-
-      const installBtn = document.createElement('button');
-      installBtn.innerText = 'Install App';
-      installBtn.style.fontSize = '24px';
-      installBtn.style.padding = '15px 30px';
-      installBtn.style.backgroundColor = '#ffcc00';
-      installBtn.style.border = 'none';
-      installBtn.style.borderRadius = '10px';
-      installBtn.style.cursor = 'pointer';
-      installBtn.style.fontWeight = 'bold';
-
-      installBtn.addEventListener('mouseenter', () => installBtn.style.backgroundColor = '#ffdb4d');
-      installBtn.addEventListener('mouseleave', () => installBtn.style.backgroundColor = '#ffcc00');
-
-      installBtn.addEventListener('click', async () => {
-        installBanner.remove();
-        deferredPrompt.prompt();
-        const choice = await deferredPrompt.userChoice;
-        console.log('User choice:', choice.outcome);
-        deferredPrompt = null;
-      });
-
-      installBanner.appendChild(installBtn);
-      document.body.appendChild(installBanner);
-    });
-  </script>
-
-<<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyAsLzICJiavtuKtBpS1hoCILjh_ByeFZHA",
-    authDomain: "we-notice.firebaseapp.com",
-    projectId: "we-notice",
-    storageBucket: "we-notice.firebasestorage.app",
-    messagingSenderId: "229210698808",
-    appId: "1:229210698808:web:711fa70c72ed42e3ede2cd",
-    measurementId: "G-YF26DX4GYN"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-</body>
-
-</html>
+      installBanner.style.boxShadow = '0 4px 8px rgba
