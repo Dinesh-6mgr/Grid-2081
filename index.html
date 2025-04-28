@@ -1,249 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#317EFB">
-    <title>Jana Jyoti Namuna Secondary School</title>
-    <link rel="icon" href="image/logo.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="manifest" href="manifest.json">
-
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
-          .then(function(registration) {
-            console.log('ServiceWorker registered successfully:', registration.scope);
-          }).catch(function(error) {
-            console.log('ServiceWorker registration failed:', error);
-          });
-      }
-    </script>
-
-    <!-- Matomo -->
-    <script>
-        var _paq = window._paq = window._paq || [];
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u = "https://jananamunaschool.matomo.cloud/";
-            _paq.push(['setTrackerUrl', u + 'matomo.php']);
-            _paq.push(['setSiteId', '1']);
-            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-            g.async = true; g.src = 'https://cdn.matomo.cloud/jananamunaschool.matomo.cloud/matomo.js';
-            s.parentNode.insertBefore(g, s);
-        })();
-    </script>
-    <!-- End Matomo Code -->
-
-    <style>
-   /* Install Banner CSS */
+/* Install Banner CSS */
 #install-banner {
     display: none;
-    width: 100%;
-    position: fixed; /* Always stay fixed at top */
-    top: 0;
-    left: 0;
-    background: linear-gradient(90deg, #4f8bf9 0%, #6aa9ff 100%);
-    padding: 20px;
     text-align: center;
+    background-color: #4f8bf9;
+    padding: 20px;
+    position: sticky;
+    top: 0;
     z-index: 9999;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 #install-button {
-    font-size: 26px;
-    padding: 18px 40px;
+    font-size: 24px;
+    padding: 15px 30px;
     background-color: #ffcc00;
-    color: #222;
+    color: #333;
     border: none;
-    border-radius: 12px;
-    font-weight: bold;
+    border-radius: 10px;
     cursor: pointer;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.25);
-    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
 }
 
 #install-button:hover {
-    background-color: #ffdb4d;
-    color: #000;
-    transform: scale(1.08);
-}
-
-    </style>
-</head>
-
-<body class="body">
-
-    <!-- Install App Banner -->
-    <div id="install-banner">
-      <button id="install-button">📲 Install Our App</button>
-    </div>
-
-    <header>
-        <nav class="a">
-            <img src="image/logo.png" alt="School Logo" style="width: 80px; height: 80px; margin-left: 10px; align-items: center;">
-            <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-        </nav>
-
-        <div class="sidebar" id="sidebar">
-            <h3>Menu</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="html/nur.html">Nursery</a></li>
-                <li><a href="html/kg.html">KG</a></li>
-                <li><a href="html/class1.html">Class 1</a></li>
-                <li><a href="html/class2.html">Class 2</a></li>
-                <li><a href="html/class3.html">Class 3</a></li>
-                <li><a href="html/class4.html">Class 4</a></li>
-                <li><a href="html/class5.html">Class 5</a></li>
-                <li><a href="html/class6.html">Class 6</a></li>
-                <li><a href="html/class7.html">Class 7</a></li>
-                <li><a href="html/class8.html">Class 8</a></li>
-                <li><a href="html/class9.html">Class 9</a></li>
-                <li><a href="html/class10.html">Class 10</a></li>
-            </ul>
-        </div>
-
-        <script>
-            function toggleSidebar() {
-                let sidebar = document.getElementById("sidebar");
-                sidebar.classList.toggle("show");
-            }
-        </script>
-    </header>
-
-    <!-- Main content -->
-    <div class="firstsection">
-        <img src="image/school.png" alt="tight-image" class="school" style="padding: 5px;">
-        <h3 style="margin: 5px; text-align: justify;">Welcome to <br>Shree Jana Jyoti Namuna Secondary School!</h3>
-        <p class="p" style="text-align: justify;">
-            Dear Students, Parents, and Visitors,<br><br>
-            It is with great pride and enthusiasm that we welcome you to Shree Jana Jyoti Namuna
-            Secondary School, a place of knowledge, growth, and excellence...
-            <br><br>
-            📚 <span class="s">"Education is the key to unlocking infinite possibilities!"</span>
-        </p>
-        <p class="p" style="text-align: right;">Warm regards,<br>Shree Jana Jyoti Namuna Secondary School</p>
-    </div>
-
-    <hr style="border: 1px solid black;">
-
-    <h1 style="font-family: 'Arial', sans-serif; font-size: 36px; color: #333; text-align: center; background-color: #f4f4f4; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">Latest news</h1>
-
-    <div id="news-container"></div>
-
-    <div class="pagination">
-        <button id="prev-button" style="display:none;">Previous</button>
-        <button id="next-button" style="display:none;">Next</button>
-    </div>
-
-    <script>
-      let currentIndex = 0;
-      const articlesPerPage = 3;
-
-      fetch('articles.json')
-        .then(response => response.json())
-        .then(articles => {
-          const container = document.getElementById('news-container');
-          const prevButton = document.getElementById('prev-button');
-          const nextButton = document.getElementById('next-button');
-
-          function showArticles(startIndex) {
-              container.innerHTML = '';
-              const articlesToShow = articles.slice(startIndex, startIndex + articlesPerPage);
-              articlesToShow.forEach(article => {
-                const articleHTML = `
-                  <div class="news-article">
-                    <img src="${article.image}" alt="${article.title}" class="news-image">
-                    <div class="news-content">
-                      <h3><a href="${article.link}">${article.title}</a></h3>
-                      <p class="date">Published on: ${article.date}</p>
-                      <p class="summary">${article.summary}</p>
-                      <a href="${article.link}" class="read-more">Read More...</a>
-                    </div>
-                  </div>
-                `;
-                container.innerHTML += articleHTML;
-              });
-
-              prevButton.style.display = startIndex > 0 ? 'inline-block' : 'none';
-              nextButton.style.display = (startIndex + articlesPerPage) < articles.length ? 'inline-block' : 'none';
-          }
-
-          showArticles(currentIndex);
-
-          prevButton.addEventListener('click', () => {
-            if (currentIndex >= articlesPerPage) {
-              currentIndex -= articlesPerPage;
-              showArticles(currentIndex);
-            }
-          });
-
-          nextButton.addEventListener('click', () => {
-            if (currentIndex + articlesPerPage < articles.length) {
-              currentIndex += articlesPerPage;
-              showArticles(currentIndex);
-            }
-          });
-        })
-        .catch(error => console.error('Error loading articles:', error));
-    </script>
-
-    <hr style="border: 1px solid black;">
-    <br><br>
-
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14133.973970564772!2d84.1808081!3d27.6711385!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399456ce7d000001%3A0x8450e6b7d036933e!2sJanajyoti%20Namuna%20Secondary%20School!5e0!3m2!1sen!2snp!4v1745726263989!5m2!1sen!2snp"
-      width="100%" height="400" style="border:0; display:block; margin: 0 auto;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-    <footer style="background-color: #4f8bf9; color: white; text-align: center; padding: 15px; margin-top: 20px;">
-        <p>&copy; 2025 Shree Jana Jyoti Namuna Secondary School. All Rights Reserved.</p>
-        <p>
-            <a href="index.html" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Home</a> |
-            <a href="#" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Privacy Policy</a> |
-            <a href="#" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Terms of Service</a>
-        </p>
-        <p>
-            <a href="https://www.facebook.com/share/1EFB78GBa4/" target="_blank" style="color: white; margin: 0 10px; font-size: 20px;">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="mailto:jananamuna@gmail.com" style="color: white; margin: 0 10px; font-size: 20px;">
-                <i class="fas fa-envelope"></i>
-            </a>
-        </p>
-    </footer>
-
-    <!-- Install App Script -->
-    <script>
-      let deferredPrompt;
-      const installBanner = document.getElementById('install-banner');
-      const installButton = document.getElementById('install-button');
-
-      window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        installBanner.style.display = 'block';
-      });
-
-      installButton.addEventListener('click', () => {
-        if (deferredPrompt) {
-          deferredPrompt.prompt();
-          deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-              console.log('User accepted install prompt');
-            } else {
-              console.log('User dismissed install prompt');
-            }
-            deferredPrompt = null;
-            installBanner.style.display = 'none';
-          });
-        }
-      });
-    </script>
-
-</body>
-
-</html>
+    background-color: #ffd633;
+    transform: scale(1.05);
+} 
