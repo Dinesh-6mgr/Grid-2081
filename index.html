@@ -39,33 +39,39 @@
     <!-- End Matomo Code -->
 
     <style>
-      /* Install Banner CSS */
-      #install-banner {
-          display: none;
-          text-align: center;
-          background-color: #4f8bf9;
-          padding: 20px;
-          position: sticky;
-          top: 0;
-          z-index: 9999;
-      }
+   /* Install Banner CSS */
+#install-banner {
+    display: none;
+    width: 100%;
+    position: fixed; /* Always stay fixed at top */
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, #4f8bf9 0%, #6aa9ff 100%);
+    padding: 20px;
+    text-align: center;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
 
-      #install-button {
-          font-size: 24px;
-          padding: 15px 30px;
-          background-color: #ffcc00;
-          color: #333;
-          border: none;
-          border-radius: 10px;
-          cursor: pointer;
-          box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
-          transition: transform 0.3s ease;
-      }
+#install-button {
+    font-size: 26px;
+    padding: 18px 40px;
+    background-color: #ffcc00;
+    color: #222;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+}
 
-      #install-button:hover {
-          background-color: #ffd633;
-          transform: scale(1.05);
-      }
+#install-button:hover {
+    background-color: #ffdb4d;
+    color: #000;
+    transform: scale(1.08);
+}
+
     </style>
 </head>
 
