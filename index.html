@@ -236,7 +236,8 @@
       </a>
     </p>
   </footer>
-<!-- Install App Banner -->
+
+<!-- Install App Full-Screen Modal (No Close Button) -->
 <script>
   let deferredPrompt;
 
@@ -244,56 +245,60 @@
     e.preventDefault();
     deferredPrompt = e;
 
-    // Create banner
+    // Create full-screen banner
     const installBanner = document.createElement('div');
     installBanner.id = 'install-banner';
     installBanner.style.position = 'fixed';
     installBanner.style.top = '0';
     installBanner.style.left = '0';
     installBanner.style.width = '100%';
-    installBanner.style.background = 'linear-gradient(90deg, #4f8bf9, #6aa9ff)';
-    installBanner.style.padding = '15px 20px';
+    installBanner.style.height = '100%';
+    installBanner.style.background = 'linear-gradient(135deg, #4f8bf9, #6aa9ff)';
     installBanner.style.display = 'flex';
-    installBanner.style.justifyContent = 'space-between';
+    installBanner.style.flexDirection = 'column';
+    installBanner.style.justifyContent = 'center';
     installBanner.style.alignItems = 'center';
     installBanner.style.zIndex = '10000';
     installBanner.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3)';
-    installBanner.style.transition = 'top 0.3s ease-in-out';
+    installBanner.style.transition = 'all 0.3s ease-in-out';
     installBanner.style.fontFamily = 'Arial, sans-serif';
+    installBanner.style.color = 'white';
+    installBanner.style.textAlign = 'center';
+    installBanner.style.padding = '20px';
+
+    // Message text
+    const message = document.createElement('h2');
+    message.innerText = 'Install Our App!';
+    message.style.fontSize = '32px';
+    message.style.marginBottom = '20px';
+
+    const subMessage = document.createElement('p');
+    subMessage.innerText = 'Get the best experience by installing our app on your device.';
+    subMessage.style.fontSize = '18px';
+    subMessage.style.marginBottom = '40px';
 
     // Install Button
     const installBtn = document.createElement('button');
-    installBtn.innerText = 'Install App';
-    installBtn.style.fontSize = '16px';
-    installBtn.style.padding = '10px 20px';
+    installBtn.innerText = 'Install Now';
+    installBtn.style.fontSize = '20px';
+    installBtn.style.padding = '15px 30px';
     installBtn.style.backgroundColor = '#ffcc00';
+    installBtn.style.color = '#333';
     installBtn.style.border = 'none';
-    installBtn.style.borderRadius = '8px';
+    installBtn.style.borderRadius = '10px';
     installBtn.style.cursor = 'pointer';
     installBtn.style.fontWeight = 'bold';
-    installBtn.style.transition = 'background-color 0.2s';
+    installBtn.style.transition = 'background-color 0.3s, transform 0.2s';
 
     installBtn.addEventListener('mouseenter', () => {
       installBtn.style.backgroundColor = '#ffdb4d';
+      installBtn.style.transform = 'scale(1.05)';
     });
     installBtn.addEventListener('mouseleave', () => {
       installBtn.style.backgroundColor = '#ffcc00';
+      installBtn.style.transform = 'scale(1)';
     });
 
-    // Close Button (×)
-    const closeBtn = document.createElement('span');
-    closeBtn.innerText = '×';
-    closeBtn.style.fontSize = '24px';
-    closeBtn.style.color = '#ffffff';
-    closeBtn.style.cursor = 'pointer';
-    closeBtn.style.marginLeft = '20px';
-    closeBtn.title = 'Close';
-
-    closeBtn.addEventListener('click', () => {
-      installBanner.remove();
-    });
-
-    // Install button click
     installBtn.addEventListener('click', async () => {
       installBanner.remove();
       deferredPrompt.prompt();
@@ -302,20 +307,12 @@
       deferredPrompt = null;
     });
 
-    // Message or app name
-    const message = document.createElement('div');
-    message.innerText = 'Install our app for a better experience!';
-    message.style.color = 'white';
-    message.style.fontSize = '16px';
-    message.style.fontWeight = 'bold';
-
-    // Append elements
+    // Append all elements (no close button now)
     installBanner.appendChild(message);
+    installBanner.appendChild(subMessage);
     installBanner.appendChild(installBtn);
-    installBanner.appendChild(closeBtn);
     document.body.appendChild(installBanner);
   });
-</script>body>
-</html>
+</script>
 </body>
 </html>
