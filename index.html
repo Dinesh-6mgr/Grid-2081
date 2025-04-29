@@ -238,47 +238,84 @@
   </footer>
 
   <!-- Install App Banner -->
-  <script>
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
+<script>
+  let deferredPrompt;
 
-      const installBanner = document.createElement('div');
-      installBanner.id = 'install-banner';
-      installBanner.style.position = 'fixed';
-      installBanner.style.top = '0';
-      installBanner.style.width = '100%';
-      installBanner.style.background = 'linear-gradient(90deg, #4f8bf9, #6aa9ff)';
-      installBanner.style.padding = '20px';
-      installBanner.style.textAlign = 'center';
-      installBanner.style.zIndex = '10000';
-      installBanner.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3)';
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
 
-      const installBtn = document.createElement('button');
-      installBtn.innerText = 'Install App';
-      installBtn.style.fontSize = '24px';
-      installBtn.style.padding = '15px 30px';
-      installBtn.style.backgroundColor = '#ffcc00';
-      installBtn.style.border = 'none';
-      installBtn.style.borderRadius = '10px';
-      installBtn.style.cursor = 'pointer';
-      installBtn.style.fontWeight = 'bold';
+    // Create banner
+    const installBanner = document.createElement('div');
+    installBanner.id = 'install-banner';
+    installBanner.style.position = 'fixed';
+    installBanner.style.top = '0';
+    installBanner.style.left = '0';
+    installBanner.style.width = '100%';
+    installBanner.style.background = 'linear-gradient(90deg, #4f8bf9, #6aa9ff)';
+    installBanner.style.padding = '15px 20px';
+    installBanner.style.display = 'flex';
+    installBanner.style.justifyContent = 'space-between';
+    installBanner.style.alignItems = 'center';
+    installBanner.style.zIndex = '10000';
+    installBanner.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3)';
+    installBanner.style.transition = 'top 0.3s ease-in-out';
+    installBanner.style.fontFamily = 'Arial, sans-serif';
 
-      installBtn.addEventListener('mouseenter', () => installBtn.style.backgroundColor = '#ffdb4d');
-      installBtn.addEventListener('mouseleave', () => installBtn.style.backgroundColor = '#ffcc00');
+    // Install Button
+    const installBtn = document.createElement('button');
+    installBtn.innerText = 'Install App';
+    installBtn.style.fontSize = '16px';
+    installBtn.style.padding = '10px 20px';
+    installBtn.style.backgroundColor = '#ffcc00';
+    installBtn.style.border = 'none';
+    installBtn.style.borderRadius = '8px';
+    installBtn.style.cursor = 'pointer';
+    installBtn.style.fontWeight = 'bold';
+    installBtn.style.transition = 'background-color 0.2s';
 
-      installBtn.addEventListener('click', async () => {
-        installBanner.remove();
-        deferredPrompt.prompt();
-        const choice = await deferredPrompt.userChoice;
-        console.log('User choice:', choice.outcome);
-        deferredPrompt = null;
-      });
-
-      installBanner.appendChild(installBtn);
-      document.body.appendChild(installBanner);
+    installBtn.addEventListener('mouseenter', () => {
+      installBtn.style.backgroundColor = '#ffdb4d';
     });
-  </script>
+    installBtn.addEventListener('mouseleave', () => {
+      installBtn.style.backgroundColor = '#ffcc00';
+    });
+
+    // Close Button (×)
+    const closeBtn = document.createElement('span');
+    closeBtn.innerText = '×';
+    closeBtn.style.fontSize = '24px';
+    closeBtn.style.color = '#ffffff';
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.style.marginLeft = '20px';
+    closeBtn.title = 'Close';
+
+    closeBtn.addEventListener('click', () => {
+      installBanner.remove();
+    });
+
+    // Install button click
+    installBtn.addEventListener('click', async () => {
+      installBanner.remove();
+      deferredPrompt.prompt();
+      const choice = await deferredPrompt.userChoice;
+      console.log('User choice:', choice.outcome);
+      deferredPrompt = null;
+    });
+
+    // Message or app name
+    const message = document.createElement('div');
+    message.innerText = 'Install our app for a better experience!';
+    message.style.color = 'white';
+    message.style.fontSize = '16px';
+    message.style.fontWeight = 'bold';
+
+    // Append elements
+    installBanner.appendChild(message);
+    installBanner.appendChild(installBtn);
+    installBanner.appendChild(closeBtn);
+    document.body.appendChild(installBanner);
+  });
+</script>
 </body>
 </html>
