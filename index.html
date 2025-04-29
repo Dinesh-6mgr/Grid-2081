@@ -236,8 +236,7 @@
       </a>
     </p>
   </footer>
-
-  <!-- Install App Banner -->
+<!-- Install App Banner -->
 <script>
   let deferredPrompt;
 
@@ -252,7 +251,6 @@
     installBanner.style.top = '0';
     installBanner.style.left = '0';
     installBanner.style.width = '100%';
-    installBanner.style.height = '100%';
     installBanner.style.background = 'linear-gradient(90deg, #4f8bf9, #6aa9ff)';
     installBanner.style.padding = '15px 20px';
     installBanner.style.display = 'flex';
@@ -282,7 +280,18 @@
       installBtn.style.backgroundColor = '#ffcc00';
     });
 
-    
+    // Close Button (×)
+    const closeBtn = document.createElement('span');
+    closeBtn.innerText = '×';
+    closeBtn.style.fontSize = '24px';
+    closeBtn.style.color = '#ffffff';
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.style.marginLeft = '20px';
+    closeBtn.title = 'Close';
+
+    closeBtn.addEventListener('click', () => {
+      installBanner.remove();
+    });
 
     // Install button click
     installBtn.addEventListener('click', async () => {
@@ -306,6 +315,7 @@
     installBanner.appendChild(closeBtn);
     document.body.appendChild(installBanner);
   });
-</script>
+</script>body>
+</html>
 </body>
 </html>
