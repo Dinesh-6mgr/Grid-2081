@@ -37,8 +37,8 @@
       s.parentNode.insertBefore(g, s);
     })();
   </script>
-
 </head>
+
 <body class="body">
   <header>
     <!-- Navbar -->
@@ -253,4 +253,32 @@
       installBanner.style.padding = '20px';
       installBanner.style.textAlign = 'center';
       installBanner.style.zIndex = '10000';
-      installBanner.style.boxShadow = '0 4px 8px rgba
+      installBanner.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3)';
+
+      const installBtn = document.createElement('button');
+      installBtn.innerText = 'Install App';
+      installBtn.style.fontSize = '24px';
+      installBtn.style.padding = '15px 30px';
+      installBtn.style.backgroundColor = '#ffcc00';
+      installBtn.style.border = 'none';
+      installBtn.style.borderRadius = '10px';
+      installBtn.style.cursor = 'pointer';
+      installBtn.style.fontWeight = 'bold';
+
+      installBtn.addEventListener('mouseenter', () => installBtn.style.backgroundColor = '#ffdb4d');
+      installBtn.addEventListener('mouseleave', () => installBtn.style.backgroundColor = '#ffcc00');
+
+      installBtn.addEventListener('click', async () => {
+        installBanner.remove();
+        deferredPrompt.prompt();
+        const choice = await deferredPrompt.userChoice;
+        console.log('User choice:', choice.outcome);
+        deferredPrompt = null;
+      });
+
+      installBanner.appendChild(installBtn);
+      document.body.appendChild(installBanner);
+    });
+  </script>
+</body>
+</html>
