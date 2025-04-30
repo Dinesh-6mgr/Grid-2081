@@ -6,6 +6,14 @@
   <title>PDF Download Website</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .sidebar.show {
+      display: block;
+    }
+    .sidebar {
+      display: none;
+    }
+  </style>
 </head>
 
 <body class="body">
@@ -57,7 +65,7 @@
       <h2 class="text-center">Download Grid of Class One</h2>
       <div class="row justify-content-center">
 
-        <!-- CARD TEMPLATE -->
+        <!-- PDF CARD -->
         <div class="col-md-4">
           <div class="card mb-3">
             <img src="../image/Image.png" class="card-img-top" alt="Book Image">
@@ -70,6 +78,7 @@
           </div>
         </div>
 
+        <!-- Add other subjects the same way -->
         <div class="col-md-4">
           <div class="card mb-3">
             <img src="../image/Image.png" class="card-img-top" alt="Book Image">
@@ -94,29 +103,7 @@
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="card mb-3">
-            <img src="../image/Image.png" class="card-img-top" alt="Book Image">
-            <div class="card-body text-center">
-              <h5><b>Class One</b></h5>
-              <p>Nepali</p>
-              <a href="../Gride-2081/class 1/Nepali class 1 SGT.pdf" class="btn btn-primary mb-2" download>Download PDF</a><br>
-              <button onclick="viewPDF('../Gride-2081/class 1/Nepali class 1 SGT.pdf')" class="btn btn-outline-secondary">View PDF</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-3">
-            <img src="../image/Image.png" class="card-img-top" alt="Book Image">
-            <div class="card-body text-center">
-              <h5><b>Class One</b></h5>
-              <p>Social</p>
-              <a href="../Gride-2081/class 1/social class 1 SGT.pdf" class="btn btn-primary mb-2" download>Download PDF</a><br>
-              <button onclick="viewPDF('../Gride-2081/class 1/social class 1 SGT.pdf')" class="btn btn-outline-secondary">View PDF</button>
-            </div>
-          </div>
-        </div>
+        <!-- Add more cards as needed... -->
 
       </div>
     </div>
