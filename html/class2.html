@@ -3,22 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-
     <title>PDF Download Website</title>
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        html, body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body > .container {
+            flex: 1;
+        }
+
+        .footer {
+            background-color: #4f8bf9;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body class="body">
+
+    <!-- Navigation -->
     <nav class="a">
-        <!-- Logo at the top -->
-        <img src="../image/logo.png" alt="School Logo" style="width: 80px; height: 80px; margin-left: 10px; align-items: center;">
+        <img src="../image/logo.png" alt="School Logo" style="width: 80px; height: 80px; margin-left: 10px;">
         <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
     </nav>
+
+    <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <h3>Menu</h3>
-        <ul >
+        <ul>
             <li><a href="../index.html">Home</a></li>
             <li><a href="../html/nur.html">Nursery</a></li>
             <li><a href="../html/kg.html">KG</a></li>
@@ -33,101 +60,93 @@
             <li><a href="class9.html">Class 9</a></li>
             <li><a href="class10.html">Class 10</a></li>
         </ul>
-        <script>
-            function toggleSidebar() {
-                let sidebar = document.getElementById("sidebar");
-                let content = document.getElementById("content");
-                sidebar.classList.toggle("show");
-                content.classList.toggle("shift");
-            }
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     </div>
-        <div class="container mt-4">
+
+    <!-- Main Content -->
+    <div class="container mt-4">
         <h2 class="text-center">Download Grid of Class Two</h2>
         <div class="row justify-content-center">
 
+            <!-- Science -->
             <div class="col-md-4">
                 <div class="card mb-3">
-                    <img src="../image/Image.png" class="card-img-top" alt="Book Image" >
-                    <div >
+                    <img src="../image/Image.png" class="card-img-top" alt="Book Image">
+                    <div class="card-body">
                         <h5><b>Class Two</b></h5>
                         <p>Science</p>
                         <a href="../Gride-2081/Class-2/science.pdf" class="btn btn-primary" download>Download PDF</a>
                     </div>
                 </div>
             </div>
-            <! –– Two file ––>
-            
+
+            <!-- Math -->
             <div class="col-md-4">
                 <div class="card mb-3">
-                    <img src="../image/Image.png" class="card-img-top" alt="Book Image" >
-                    <div >
+                    <img src="../image/Image.png" class="card-img-top" alt="Book Image">
+                    <div class="card-body">
                         <h5><b>Class Two</b></h5>
                         <p>Math</p>
                         <a href="../Gride-2081/Class-2/Class 2 Math.pdf" class="btn btn-primary" download>Download PDF</a>
                     </div>
                 </div>
             </div>
-            <! –– Two file ––>
-            
+
+            <!-- English Grid -->
             <div class="col-md-4">
                 <div class="card mb-3">
-                    <img src="../image/Image.png" class="card-img-top" alt="Book Image" >
-                    <div >
-                        <h5><b>Class Two Grid</b></h5>
+                    <img src="../image/Image.png" class="card-img-top" alt="Book Image">
+                    <div class="card-body">
+                        <h5><b>Class Two</b></h5>
                         <p>English Grid</p>
                         <a href="../Gride-2081/Class-2/class 2 grid 2081  English.pdf" class="btn btn-primary" download>Download PDF</a>
                     </div>
                 </div>
             </div>
-            <! –– Two file ––>
+
+            <!-- English Model Question -->
             <div class="col-md-4">
                 <div class="card mb-3">
-                    <img src="../image/Image.png" class="card-img-top" alt="Book Image" >
-                    <div >
+                    <img src="../image/Image.png" class="card-img-top" alt="Book Image">
+                    <div class="card-body">
                         <h5><b>Class Two</b></h5>
-                        <p>English model question</p>
+                        <p>English Model Question</p>
                         <a href="../Gride-2081/Class-2/class 2 English model question.pdf" class="btn btn-primary" download>Download PDF</a>
                     </div>
                 </div>
             </div>
-            <! –– Two file ––>
+
+            <!-- Duplicate Science (optional: remove if unnecessary) -->
             <div class="col-md-4">
                 <div class="card mb-3">
-                    <img src="../image/Image.png" class="card-img-top" alt="Book Image" >
-                    <div >
+                    <img src="../image/Image.png" class="card-img-top" alt="Book Image">
+                    <div class="card-body">
                         <h5><b>Class Two</b></h5>
                         <p>Science</p>
                         <a href="../Gride-2081/Class-2/science.pdf" class="btn btn-primary" download>Download PDF</a>
                     </div>
                 </div>
             </div>
-            <! –– Two file ––>
+
+            <!-- Social -->
             <div class="col-md-4">
                 <div class="card mb-3">
-                    <img src="../image/Image.png" class="card-img-top" alt="Book Image" >
-                    <div >
+                    <img src="../image/Image.png" class="card-img-top" alt="Book Image">
+                    <div class="card-body">
                         <h5><b>Class Two</b></h5>
                         <p>Social</p>
                         <a href="../Gride-2081/Class-2/Serofero.pdf" class="btn btn-primary" download>Download PDF</a>
                     </div>
                 </div>
             </div>
-            <! –– Two file ––>
 
-            
         </div>
     </div>
 
-    <footer style="background-color: #4f8bf9; color: white; text-align: center; padding: 15px; width: 100%; margin-top: 20px;
-    position: relative;
-    bottom: 0;
-    width: 100%;">
+    <!-- Footer -->
+    <footer class="footer">
         <p>&copy; 2025 Shree Jana Jyoti Namuna Secondary School. All Rights Reserved.</p>
         <p>
-            <a href="index.html" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Home</a> |
+            <a href="../index.html" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Home</a> |
             <a href="#" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Privacy Policy</a> |
             <a href="#" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Terms of Service</a>
         </p>
@@ -140,6 +159,17 @@
             </a>
         </p>
     </footer>
-</body>
 
+    <!-- Scripts -->
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            let content = document.getElementById("content");
+            sidebar.classList.toggle("show");
+            if (content) content.classList.toggle("shift");
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>
