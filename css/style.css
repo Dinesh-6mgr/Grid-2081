@@ -215,14 +215,17 @@ nav ul li a:hover {
     background-color: #4f8bf9;
     color: white;
     text-align: center;
-    padding: 10px 5px; /* smaller vertical padding */
+    padding: 10px 5px;
     margin-top: 20px;
     font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer p {
-    margin: 5px 0; /* reduce space between lines */
-    line-height: 1.2; /* tighter line spacing */
+    margin: 5px 0;
+    line-height: 1.2;
 }
 
 .footer a {
@@ -235,4 +238,27 @@ nav ul li a:hover {
 .footer a i {
     color: white;
     font-size: 18px;
+}
+
+/* Responsive Footer */
+@media (max-width: 600px) {
+    .footer {
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+
+    .footer p {
+        margin: 3px 0;
+        line-height: 1.1;
+    }
+
+    .footer a {
+        margin: 0 5px;
+        font-size: 14px;
+        display: inline-block;
+    }
+
+    .footer a i {
+        font-size: 16px;
+    }
 }
