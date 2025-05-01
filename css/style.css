@@ -211,3 +211,6 @@ nav ul li a:hover {
         font-size: 18px;
     }
 }
+.footer{
+    background-color: #4f8bf9; color: white; text-align: center; padding: 15px; margin-top: 20px;
+}
