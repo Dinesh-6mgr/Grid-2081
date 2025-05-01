@@ -211,9 +211,12 @@ nav ul li a:hover {
         font-size: 18px;
     }
 }
-.footer{
-    background-color: #4f8bf9; color: white; 
+.footer {
+    background-color: #4f8bf9;
+    color: white;
     text-align: center;
-     padding: 15px;
+    padding: 15px;
     margin-top: 20px;
+    border-top: 2px solid #FFD700;
+    clear: both;
 }
