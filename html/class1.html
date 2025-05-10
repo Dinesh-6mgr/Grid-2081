@@ -1,168 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>PDF Download Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>PDF Download Website</title>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
 
-  <style>
-    html, body {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    body > .m {
-      flex: 1;
-    }
-    .sidebar {
-      width: 200px;
-      background-color: #f8f9fa;
-      position: fixed;
-      top: 80px;
-      left: -200px;
-      height: 100%;
-      overflow-y: auto;
-      transition: all 0.3s;
-      padding: 10px;
-    }
-    .sidebar.show {
-      left: 0;
-    }
-    .toggle-btn {
-      background-color: transparent;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: white;
-      margin-left: auto;
-      margin-right: 20px;
-    }
-    .a {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #343a40;
-      color: white;
-      padding: 10px;
-    }
-  </style>
+    <!-- Font Awesome (Only One Version) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        html, body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        body > .m {
+            flex: 1;
+        }
+    </style>
 </head>
 <body class="body">
 
-  <!-- Navbar -->
-  <nav class="a">
-    <img src="../image/logo.png" alt="School Logo" style="width: 80px; height: 80px;" />
-    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-  </nav>
+    <!-- Navbar -->
+    <nav class="a">
+        <img src="../image/logo.png" alt="School Logo" style="width: 80px; height: 80px; margin-left: 10px; align-items: center;">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    </nav>
 
-  <!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-    <h3>Menu</h3>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../html/nur.html">Nursery</a></li>
-      <li><a href="../html/kg.html">KG</a></li>
-      <li><a href="class1.html">Class 1</a></li>
-      <li><a href="class2.html">Class 2</a></li>
-      <li><a href="class3.html">Class 3</a></li>
-      <li><a href="class4.html">Class 4</a></li>
-      <li><a href="class5.html">Class 5</a></li>
-      <li><a href="class6.html">Class 6</a></li>
-      <li><a href="class7.html">Class 7</a></li>
-      <li><a href="class8.html">Class 8</a></li>
-      <li><a href="class9.html">Class 9</a></li>
-      <li><a href="class10.html">Class 10</a></li>
-    </ul>
-  </div>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <h3>Menu</h3>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../html/nur.html">Nursery</a></li>
+            <li><a href="../html/kg.html">KG</a></li>
+            <li><a href="class1.html">Class 1</a></li>
+            <li><a href="class2.html">Class 2</a></li>
+            <li><a href="class3.html">Class 3</a></li>
+            <li><a href="class4.html">Class 4</a></li>
+            <li><a href="class5.html">Class 5</a></li>
+            <li><a href="class6.html">Class 6</a></li>
+            <li><a href="class7.html">Class 7</a></li>
+            <li><a href="class8.html">Class 8</a></li>
+            <li><a href="class9.html">Class 9</a></li>
+            <li><a href="class10.html">Class 10</a></li>
+        </ul>
+    </div>
 
-  <!-- Main Content -->
-  <div class="m">
-    <div class="container mt-4">
-      <h2 class="text-center">Download Grid of Class One</h2>
-      <div class="row justify-content-center">
+    <!-- Main Content -->
+    <div class="m">
+        <div class="container mt-4">
+            <h2 class="text-center">Download Grid of Class One</h2>
 
-        <!-- Example Card (Repeat for each subject) -->
-        <div class="col-md-4">
-          <div class="card mb-3">
-            <img src="../image/Image.png" class="card-img-top" alt="Book Image" />
-            <div class="p-3">
-              <h5><b>Class One</b></h5>
-              <p>Science</p>
-              <a href="../Gride-2081/class 1/Science 1 Sfg 2081.pdf" class="btn btn-primary" download>Download PDF</a>
-              <button class="btn btn-secondary" onclick="viewPDF('../Gride-2081/class 1/Science 1 Sfg 2081.pdf')">View</button>
+            <!-- Search Input -->
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-6">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Search subject (e.g. Math, English, Science)">
+                </div>
             </div>
-          </div>
+
+            <div class="row justify-content-center" id="cardContainer">
+
+                <!-- Science -->
+                <div class="col-md-4 card-item">
+                    <div class="card mb-3">
+                        <img src="../image/Image.png" class="card-img-top" alt="Book Image">
+                        <div>
+                            <h5><b>Class One</b></h5>
+                            <p>Science</p>
+                            <a href="../Gride-2081/class 1/Science 1 Sfg 2081.pdf" class="btn btn-primary" download>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Math -->
+                <div class="col-md-4 card-item">
+                    <div class="card mb-3">
+                        <img src="../image/Image.png" class="card-img-top" alt="Book Image">
+                        <div>
+                            <h5><b>Class One</b></h5>
+                            <p>Math</p>
+                            <a href="../Gride-2081/class 1/Math.pdf" class="btn btn-primary" download>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- English -->
+                <div class="col-md-4 card-item">
+                    <div class="card mb-3">
+                        <img src="../image/Image.png" class="card-img-top" alt="Book Image">
+                        <div>
+                            <h5><b>Class One</b></h5>
+                            <p>English</p>
+                            <a href="../Gride-2081/class 1/English.pdf" class="btn btn-primary" download>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nepali -->
+                <div class="col-md-4 card-item">
+                    <div class="card mb-3">
+                        <img src="../image/Image.png" class="card-img-top" alt="Book Image">
+                        <div>
+                            <h5><b>Class One</b></h5>
+                            <p>Nepali</p>
+                            <a href="../Gride-2081/class 1/Nepali class 1 SGT.pdf" class="btn btn-primary" download>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social -->
+                <div class="col-md-4 card-item">
+                    <div class="card mb-3">
+                        <img src="../image/Image.png" class="card-img-top" alt="Book Image">
+                        <div>
+                            <h5><b>Class One</b></h5>
+                            <p>Social</p>
+                            <a href="../Gride-2081/class 1/social class 1 SGT.pdf" class="btn btn-primary" download>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-
-        <!-- Add other subject cards similarly -->
-
-      </div>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <footer class="footer text-center p-3 bg-dark text-white">
-    <p>&copy; 2025 Shree Jana Jyoti Namuna Secondary School. All Rights Reserved.</p>
-    <p>
-      <a href="../index.html" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Home</a> |
-      <a href="#" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Privacy Policy</a> |
-      <a href="#" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Terms of Service</a>
-    </p>
-    <p>
-      <a href="https://www.facebook.com/share/1EFB78GBa4/" target="_blank" style="color: white; margin: 0 10px; font-size: 20px;">
-        <i class="fab fa-facebook"></i>
-      </a>
-      <a href="mailto:jananamuna@gmail.com" style="color: white; margin: 0 10px; font-size: 20px;">
-        <i class="fas fa-envelope"></i>
-      </a>
-    </p>
-  </footer>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Shree Jana Jyoti Namuna Secondary School. All Rights Reserved.</p>
+        <p>
+            <a href="../index.html" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Home</a> |
+            <a href="#" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Privacy Policy</a> |
+            <a href="#" style="color: #9AA7E1; text-decoration: none; margin: 0 10px;">Terms of Service</a>
+        </p>
+        <p>
+            <a href="https://www.facebook.com/share/1EFB78GBa4/" target="_blank" style="color: white; margin: 0 10px; font-size: 20px;">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="mailto:jananamuna@gmail.com" style="color: white; margin: 0 10px; font-size: 20px;">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </p>
+    </footer>
 
-  <!-- Modal for Desktop View -->
-  <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="pdfModalLabel">View PDF</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <iframe id="pdfViewer" src="" width="100%" height="600px" frameborder="0"></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
+    <!-- Scripts -->
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            let content = document.getElementById("content");
+            sidebar.classList.toggle("show");
+            if (content) content.classList.toggle("shift");
+        }
 
-  <!-- Scripts -->
-  <script>
-    function toggleSidebar() {
-      let sidebar = document.getElementById("sidebar");
-      sidebar.classList.toggle("show");
-    }
+        // Search functionality
+        document.getElementById("searchInput").addEventListener("input", function () {
+            let filter = this.value.toLowerCase();
+            let cards = document.querySelectorAll(".card-item");
 
-    function isMobileDevice() {
-      return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    }
-
-    function viewPDF(pdfUrl) {
-      if (isMobileDevice()) {
-        // Open in new tab on mobile
-        window.open(pdfUrl, '_blank');
-      } else {
-        // Show modal with iframe on desktop
-        document.getElementById('pdfViewer').src = pdfUrl;
-        const pdfModal = new bootstrap.Modal(document.getElementById('pdfModal'));
-        pdfModal.show();
-      }
-    }
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+            cards.forEach(function (card) {
+                let subject = card.querySelector("p").textContent.toLowerCase();
+                if (subject.includes(filter)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
