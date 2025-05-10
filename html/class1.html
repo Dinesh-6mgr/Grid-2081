@@ -68,7 +68,7 @@
               <h5><b>Class One</b></h5>
               <p>Science</p>
               <a href="../Gride-2081/class 1/Science 1 Sfg 2081.pdf" class="btn btn-primary" download>Download PDF</a>
-              <button class="btn btn-secondary" onclick="viewPDF(event, '../Gride-2081/class 1/Science 1 Sfg 2081.pdf')">View</button>
+              <button class="btn btn-secondary" onclick="viewPDF('../Gride-2081/class 1/Science 1 Sfg 2081.pdf')">View</button>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@
               <h5><b>Class One</b></h5>
               <p>Math</p>
               <a href="../Gride-2081/class 1/Math.pdf" class="btn btn-primary" download>Download PDF</a>
-              <button class="btn btn-secondary" onclick="viewPDF(event, '../Gride-2081/class 1/Math.pdf')">View</button>
+              <button class="btn btn-secondary" onclick="viewPDF('../Gride-2081/class 1/Math.pdf')">View</button>
             </div>
           </div>
         </div>
@@ -94,7 +94,7 @@
               <h5><b>Class One</b></h5>
               <p>English</p>
               <a href="../Gride-2081/class 1/English.pdf" class="btn btn-primary" download>Download PDF</a>
-              <button class="btn btn-secondary" onclick="viewPDF(event, '../Gride-2081/class 1/English.pdf')">View</button>
+              <button class="btn btn-secondary" onclick="viewPDF('../Gride-2081/class 1/English.pdf')">View</button>
             </div>
           </div>
         </div>
@@ -107,7 +107,7 @@
               <h5><b>Class One</b></h5>
               <p>Nepali</p>
               <a href="../Gride-2081/class 1/Nepali class 1 SGT.pdf" class="btn btn-primary" download>Download PDF</a>
-              <button class="btn btn-secondary" onclick="viewPDF(event, '../Gride-2081/class 1/Nepali class 1 SGT.pdf')">View</button>
+              <button class="btn btn-secondary" onclick="viewPDF('../Gride-2081/class 1/Nepali class 1 SGT.pdf')">View</button>
             </div>
           </div>
         </div>
@@ -120,7 +120,7 @@
               <h5><b>Class One</b></h5>
               <p>Social</p>
               <a href="../Gride-2081/class 1/social class 1 SGT.pdf" class="btn btn-primary" download>Download PDF</a>
-              <button class="btn btn-secondary" onclick="viewPDF(event, '../Gride-2081/class 1/social class 1 SGT.pdf')">View</button>
+              <button class="btn btn-secondary" onclick="viewPDF('../Gride-2081/class 1/social class 1 SGT.pdf')">View</button>
             </div>
           </div>
         </div>
@@ -164,17 +164,8 @@
 
   <!-- Scripts -->
   <script>
-    function toggleSidebar() {
-      let sidebar = document.getElementById("sidebar");
-      let content = document.getElementById("content");
-      sidebar.classList.toggle("show");
-      if (content) content.classList.toggle("shift");
-    }
-
-    function viewPDF(event, pdfUrl) {
-      // Prevent the default link behavior for mobile
-      event.preventDefault();
-
+    function viewPDF(pdfUrl) {
+      // Set the PDF URL in the iframe
       const pdfViewer = document.getElementById('pdfViewer');
       pdfViewer.src = pdfUrl;
       
@@ -183,6 +174,7 @@
       pdfModal.show();
     }
   </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
