@@ -73,6 +73,15 @@
     <button onclick="window.location.assign('https://dinesh-6mgr.github.io/Grid-2081/');">
   Open in Browser
 </button> 
+<button onclick="copyLink()">Copy Link</button>
+
+<script>
+function copyLink() {
+  navigator.clipboard.writeText('https://dinesh-6mgr.github.io/Grid-2081/')
+    .then(() => alert('Link copied! Open it in Chrome or another browser.'))
+    .catch(err => console.error('Failed to copy:', err));
+}
+</script>
   </div>
 </div>
 
