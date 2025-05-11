@@ -178,16 +178,34 @@ nav ul li a:hover {
     align-items: center;  
 }  
   
-footer {  
-    background-color: #4f8bf9;  
-    color: white;  
-    text-align: center;  
-    padding: 15px;  
-    width: 100%;  
-    position: relative;  
-    bottom: 0;  
-    margin-top: auto;  
-}  
+ /* Footer styles */
+footer {
+  background-color: #4f8bf9;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  width: 100%;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0  2px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Icons (Font Awesome) */
+footer i {
+  margin: 0 5px;
+  font-size: 18px;
+}
+footer p {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
   
 @media (max-width: 768px) {  
     nav {  
