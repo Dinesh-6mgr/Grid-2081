@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+. <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -70,9 +70,16 @@
     <p>This page may not work properly inside social media apps.</p>
     <p>Please open it in your regular browser (e.g., Chrome, Safari).</p>
     <button onclick="document.getElementById('popup').style.display='none';">Close</button>
-    <button onclick="window.location.href='https://dinesh-6mgr.github.io/Grid-2081/';">
-  Open in Browser
-</button> 
+    <button onclick="openInBrowser()">Open in Browser</button>
+
+<script>
+function openInBrowser() {
+  let newWindow = window.open('https://dinesh-6mgr.github.io/Grid-2081/', '_blank', 'noopener,noreferrer');
+  if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+    alert("Your browser may be blocking popups. Try opening the link manually.");
+  }
+}
+</script>
   </div>
 </div>
 
