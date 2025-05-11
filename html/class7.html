@@ -1,96 +1,209 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>PDF Download Website</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>PDF Download Website</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body class="body">
-  <!-- Top Nav -->
-  <nav class="a">
-    <img src="../image/logo.png" alt="School Logo" style="width: 80px; height: 80px; margin-left: 40px;" />
-    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-  </nav>
-
-  <!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-    <h3>Menu</h3>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../html/nur.html">Nursery</a></li>
-      <li><a href="../html/kg.html">KG</a></li>
-      <li><a href="class1.html">Class 1</a></li>
-      <li><a href="class2.html">Class 2</a></li>
-      <li><a href="class3.html">Class 3</a></li>
-      <li><a href="class4.html">Class 4</a></li>
-      <li><a href="class5.html">Class 5</a></li>
-      <li><a href="class6.html">Class 6</a></li>
-      <li><a href="class7.html">Class 7</a></li>
-      <li><a href="class8.html">Class 8</a></li>
-      <li><a href="class9.html">Class 9</a></li>
-      <li><a href="class10.html">Class 10</a></li>
-    </ul>
-  </div>
-
-  <!-- Main Container -->
-  <div class="container mt-4">
-    <h2 class="text-center">Download Grid of Class Seven</h2>
-    <div class="row justify-content-center">
-
-      <!-- Card Template -->
-      <!-- Repeat this block for each subject -->
-
-      <!-- Math Grid -->
-      <div class="col-md-4">
-        <div class="card mb-3">
-          <img src="../image/Image.png" class="card-img-top" alt="Book Image" />
-          <div class="card-body text-center">
-            <h5><b>Class Seven</b></h5>
-            <p>Math Grid</p>
-            <a href="../Gride-2081/Class-7/C Math  Specification Grid class 7 2081.pdf" class="btn btn-primary" download>
-              <i class="fas fa-download"></i> Download PDF
-            </a>
-            <a href="../Gride-2081/Class-7/C Math  Specification Grid class 7 2081.pdf" class="btn btn-secondary" target="_blank">
-              <i class="fas fa-eye"></i> View PDF
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Repeat similar blocks for other subjects -->
-      <!-- You already have all those blocks written correctly -->
-
-      <!-- Science Question (example of last card) -->
-      <div class="col-md-4">
-        <div class="card mb-3">
-          <img src="../image/Image.png" class="card-img-top" alt="Book Image" />
-          <div class="card-body text-center">
-            <h5><b>Class Seven</b></h5>
-            <p>Science Question</p>
-            <a href="../Gride-2081/Class-7/Science grid 2081.pdf" class="btn btn-primary" download>
-              <i class="fas fa-download"></i> Download PDF
-            </a>
-            <a href="../Gride-2081/Class-7/Science grid 2081.pdf" class="btn btn-secondary" target="_blank">
-              <i class="fas fa-eye"></i> View PDF
-            </a>
-          </div>
-        </div>
-      </div>
-
+    <nav class="a">
+        <!-- Logo at the top -->
+        <img src="../image/logo.png" alt="School Logo" style="width: 80px; height: 80px; margin-left: 40px; align-items: center;">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    </nav>
+    <div class="sidebar" id="sidebar">
+        <h3>Menu</h3>
+        <ul >
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../html/nur.html">Nursery</a></li>
+            <li><a href="../html/kg.html">KG</a></li>
+            <li><a href="class1.html">Class 1</a></li>
+            <li><a href="class2.html">Class 2</a></li>
+            <li><a href="class3.html">Class 3</a></li>
+            <li><a href="class4.html">Class 4</a></li>
+            <li><a href="class5.html">Class 5</a></li>
+            <li><a href="class6.html">Class 6</a></li>
+            <li><a href="class7.html">Class 7</a></li>
+            <li><a href="class8.html">Class 8</a></li>
+            <li><a href="class9.html">Class 9</a></li>
+            <li><a href="class10.html">Class 10</a></li>
+        </ul>
     </div>
-  </div>
+    <div class="container mt-4">
+        <h2 class="text-center">Download Grid of Class Seven</h2>
+        <div class="row justify-content-center"><!-- Math Grid -->
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="../image/Image.png" class="card-img-top" alt="Book Image" >
+                <div class="card-body text-center">
+                    <h5><b>Class Seven</b></h5>
+                    <p>Math Grid</p>
+                    <a href="../Gride-2081/Class-7/C Math  Specification Grid class 7 2081.pdf" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                    <a href="../Gride-2081/Class-7/C Math  Specification Grid class 7 2081.pdf" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-eye"></i> View PDF
+                    </a>
+                </div>
+            </div>
+        </div>
 
-  <!-- Scripts -->
+        <!-- Math Question -->
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="../image/Image.png" class="card-img-top" alt="Book Image" >
+                <div class="card-body text-center">
+                    <h5><b>Class Seven</b></h5>
+                    <p>Math Question</p>
+                    <a href="../Gride-2081/Class-7/Class 7 Math 2081 1 (1).pdf" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                    <a href="../Gride-2081/Class-7/Class 7 Math 2081 1 (1).pdf" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-eye"></i> View PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Computer Grid -->
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="../image/Image.png" class="card-img-top" alt="Book Image" >
+                <div class="card-body text-center">
+                    <h5><b>Class Seven</b></h5>
+                    <p>Computer Grid</p>
+                    <a href="../Gride-2081/Class-7/Class 7 Computer Science Grid 2081.pdf" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                    <a href="../Gride-2081/Class-7/Class 7 Computer Science Grid 2081.pdf" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-eye"></i> View PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- English Grid -->
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="../image/Image.png" class="card-img-top" alt="Book Image" >
+                <div class="card-body text-center">
+                    <h5><b>Class Seven</b></h5>
+                    <p>English Grid</p>
+                    <a href="../Gride-2081/Class-7/English Specification Grid 2081  class 7.pdf" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                    <a href="../Gride-2081/Class-7/English Specification Grid 2081  class 7.pdf" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-eye"></i> View PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- English Question -->
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="../image/Image.png" class="card-img-top" alt="Book Image" >
+                <div class="card-body text-center">
+                    <h5><b>Class Seven</b></h5>
+                    <p>English Question</p>
+                    <a href="../Gride-2081/Class-7/English Model Question 2081.pdf" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                    <a href="../Gride-2081/Class-7/English Model Question 2081.pdf" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-eye"></i> View PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Health Grid -->
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="../image/Image.png" class="card-img-top" alt="Book Image" >
+                <div class="card-body text-center">
+                    <h5><b>Class Seven</b></h5>
+                    <p>Health</p>
+                    <a href="../Gride-2081/Class-7/Grid class 7 for health 2081.pdf" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                    <a href="../Gride-2081/Class-7/Grid class 7 for health 2081.pdf" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-eye"></i> View PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nepali Grid -->
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="../image/Image.png" class="card-img-top" alt="Book Image" >
+                <div class="card-body text-center">
+                    <h5><b>Class Seven</b></h5>
+                    <p>Nepali</p>
+                    <a href="../Gride-2081/Class-7/Nepali Grid class 7 2081.pdf" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                    <a href="../Gride-2081/Class-7/Nepali Grid class 7 2081.pdf" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-eye"></i> View PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Science Grid -->
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="../image/Image.png" class="card-img-top" alt="Book Image" >
+                <div class="card-body text-center">
+                    <h5><b>Class Seven</b></h5>
+                    <p>Science Grid</p>
+                    <a href="../Gride-2081/Class-7/Science Specification grid  2081.pdf" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                    <a href="../Gride-2081/Class-7/Science Specification grid  2081.pdf" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-eye"></i> View PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Science Question -->
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="../image/Image.png" class="card-img-top" alt="Book Image" >
+                <div class="card-body text-center">
+                    <h5><b>Class Seven</b></h5>
+                    <p>Science Question</p>
+                    <a href="../Gride-2081/Class-7/Science grid 2081.pdf" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                    <a href="../Gride-2081/Class-7/Science grid 2081.pdf" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-eye"></i> View PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+!-- Scripts -->
+
   <script>
     function toggleSidebar() {
       let sidebar = document.getElementById("sidebar");
       sidebar.classList.toggle("show");
     }
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../js/sidebar.js"></script>
+
+    function viewPDF(pdfUrl) {
+      document.getElementById('pdfViewer').src = pdfUrl;
+      const modal = new bootstrap.Modal(document.getElementById('pdfModal'));
+      modal.show();
+    }
+  </script>  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script><script src="../js/sidebar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
