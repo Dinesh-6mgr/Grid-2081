@@ -178,17 +178,76 @@ nav ul li a:hover {
     align-items: center;  
 }  
   
-footer {  
-    background-color: #4f8bf9;  
-    color: white;  
-    text-align: center;  
-    padding: 15px;  
-    width: 100%;  
-    position: relative;  
-    bottom: 0;  
-    margin-top: auto;  
-}  
-  
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Main content should grow and push footer to bottom */
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Footer styles */
+footer {
+  background-color: #4f8bf9;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  width: 100%;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0  2px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Icons (Font Awesome) */
+footer i {
+  margin: 0 5px;
+  font-size: 18px;
+}
+footer p {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+/* Responsive padding and font for smaller screens */
+@media (max-width: 600px) {
+  .main-content {
+    padding: 5px;
+  }
+
+  footer {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  footer i {
+    font-size: 16px;
+  }
+footer p {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+}
+
 @media (max-width: 768px) {  
     nav {  
         flex-direction: column;  
@@ -315,4 +374,4 @@ footer {
     background: linear-gradient(to right, #4f8bf9, #3a74d1);  
     color: white;  
     padding: 10px 20px;  
-    margin: 5px;
+    margin: 5px;}
