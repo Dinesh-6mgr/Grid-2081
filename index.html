@@ -108,7 +108,28 @@
   </div>  
 </header>  <main>  
   <section class="firstsection">  
-    <img src="image/school.png" alt="School" class="school" style="padding: 5px;">  
+    <!-- Image that will change -->
+<img src="image/school1.png" alt="School" class="school" id="slideshow">
+
+<script>
+  // List of image file paths
+  const images = [
+    "image/school1.JPG",
+    "image/school2.JPG",
+    "image/school3.JPG",
+    "image/school4.JPG",
+    "image/school5.JPG"
+  ];
+
+  let index = 0;
+  const img = document.getElementById("slideshow");
+
+  // Change image every 3 seconds
+  setInterval(() => {
+    index = (index + 1) % images.length;  // Go to next image
+    img.src = images[index];              // Set new image
+  }, 3000); // 3000 milliseconds = 3 seconds
+</script>
     <h3 style="margin: 5px; text-align: justify;">Welcome to <br>Shree Jana Jyoti Namuna Secondary School!</h3>  
     <p class="p" style="text-align: justify;">  
       Dear Students, Parents, and Visitors,<br><br>  

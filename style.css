@@ -60,15 +60,16 @@ nav ul li a:hover {
     padding: 100px 50px 50px 50px;  
 }  
   
-.school {  
-    padding: 10px;  
-    width: 250px;  
-    height: 150px;  
-    margin: 25px;  
-    float: right;  
-    border-radius: 10px;  
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);  
-}  
+.school {
+      padding: 10px;
+      width: 250px;
+      height: 150px;
+      margin: 25px;
+      float: right;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      object-fit: cover;
+    }
   
 .sidebar {  
     position: fixed;  
