@@ -112,7 +112,6 @@
 <img src="image/school1.png" alt="School" class="school" id="slideshow">
 
 <script>
-  // List of image file paths
   const images = [
     "image/school1.JPG",
     "image/school2.JPG",
@@ -122,14 +121,14 @@
   ];
 
   let index = 0;
-  const img = document.getElementById("slideshow");
+  const imgElement = document.getElementById("slideshow");
 
-  // Change image every 3 seconds
   setInterval(() => {
-    index = (index + 1) % images.length;  // Go to next image
-    img.src = images[index];              // Set new image
-  }, 3000); // 3000 milliseconds = 3 seconds
+    index = (index + 1) % images.length;
+    imgElement.src = images[index];
+  }, 5000); // 5000 ms = 5 seconds
 </script>
+
     <h3 style="margin: 5px; text-align: justify;">Welcome to <br>Shree Jana Jyoti Namuna Secondary School!</h3>  
     <p class="p" style="text-align: justify;">  
       Dear Students, Parents, and Visitors,<br><br>  
