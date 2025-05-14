@@ -61,15 +61,19 @@ nav ul li a:hover {
 }  
   
 .school {
-      padding: 10px;
-      width: 250px;
-      height: 150px;
-      margin: 25px;
-      float: right;
-      border-radius: 10px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-      object-fit: cover;
-    }
+  width: 250px;
+  height: 150px;
+  padding: 10px;
+  margin: 25px;
+  float: right;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+  /* 👇 Add these two lines 👇 */
+  object-fit: cover;
+  object-position: center;
+}
+
   
 .sidebar {  
     position: fixed;  
