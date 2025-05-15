@@ -1,0 +1,278 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Jana Jyoti Namuna Secondary School</title>    <link rel="icon" href="image/logo.png">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">  
+  <link rel="stylesheet" href="style.css">  
+  <link rel="manifest" href="manifest.json">    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>    <script defer>  
+    if ('serviceWorker' in navigator) {  
+      navigator.serviceWorker.register('service-worker.js')  
+        .then(reg => console.log('ServiceWorker registered:', reg.scope))  
+        .catch(err => console.log('ServiceWorker registration failed:', err));  
+    }  
+  </script>    <script defer>  
+    var _paq = window._paq = window._paq || [];  
+    _paq.push(['trackPageView']);  
+    _paq.push(['enableLinkTracking']);  
+    (function () {  
+      var u = "https://jananamunaschool.matomo.cloud/";  
+      _paq.push(['setTrackerUrl', u + 'matomo.php']);  
+      _paq.push(['setSiteId', '1']);  
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];  
+      g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);  
+    })();  
+  </script>    <style>  
+    #popup {  
+      display: none;  
+      position: fixed;  
+      top: 0; left: 0;  
+      width: 100%; height: 100%;  
+      background-color: rgba(0, 0, 0, 0.8);  
+      color: white;  
+      font-family: Arial, sans-serif;  
+      font-size: 18px;  
+      justify-content: center;  
+      align-items: center;  
+      text-align: center;  
+      padding: 20px;  
+      z-index: 9999;  
+    }  
+    .popup-box {  
+      max-width: 400px;  
+    }  
+    .popup-box button {  
+      margin-top: 20px;  
+      padding: 10px 20px;  
+      font-size: 16px;  
+      background-color: #ffffff;  
+      color: #000000;  
+      border: none;  
+      cursor: pointer;  
+      border-radius: 5px;  
+    }  
+  </style>  </head>  
+<body class="body">  
+<div id="popup">  
+  <div class="popup-box">  
+    <p>This page may not work properly inside social media apps.</p>  
+    <p>Please open it in your regular browser (e.g., Chrome, Safari).</p>  
+    <button onclick="document.getElementById('popup').style.display='none';">Close</button>  
+ <button onclick="copyLink()">Copy Link</button>
+
+<script>
+  function copyLink() {
+    const link = 'https://dinesh-6mgr.github.io/Grid-2081/';
+    navigator.clipboard.writeText(link).then(() => {
+      alert('Link copied to clipboard!');
+    }).catch(err => {
+      alert('Failed to copy: ' + err);
+    });
+  }
+</script>
+  </div>  
+</div>  <script>  
+  function copyLink() {  
+    const link = window.location.href;  
+    navigator.clipboard.writeText(link).then(() => {  
+      alert('Link copied to clipboard!');  
+    });  
+  }  
+  
+  function closePopup() {  
+    document.getElementById('popup').style.display = 'none';  
+  }  
+</script>  <header>  
+  <nav class="a">  
+    <img src="image/logo.png" alt="School Logo" width="80" height="80" style="margin-left: 40px;">  
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>  
+  </nav>  
+  <div class="sidebar" id="sidebar">  
+    <h3>Menu</h3>  
+    <ul>  
+      <li><a href="index.html">Home</a></li>  
+      <li><a href="html/nur.html">Nursery</a></li>  
+      <li><a href="html/kg.html">KG</a></li>  
+      <li><a href="html/class1.html">Class 1</a></li>  
+      <li><a href="html/class2.html">Class 2</a></li>  
+      <li><a href="html/class3.html">Class 3</a></li>  
+      <li><a href="html/class4.html">Class 4</a></li>  
+      <li><a href="html/class5.html">Class 5</a></li>  
+      <li><a href="html/class6.html">Class 6</a></li>  
+      <li><a href="html/class7.html">Class 7</a></li>  
+      <li><a href="html/class8.html">Class 8</a></li>  
+      <li><a href="html/class9.html">Class 9</a></li>  
+      <li><a href="html/class10.html">Class 10</a></li>  
+    </ul>  
+  </div>  
+</header>  <main>  
+  <section class="firstsection">  
+ <!-- Image that will change -->
+  <img src="image/school1.JPG" alt="School" class="school" id="slideshow">
+
+  <script>
+    // List of image file paths
+    const images = [
+      "image/school1.JPG",
+      "image/school2.JPG",
+      "image/school3.JPG",
+      "image/school4.JPG",
+      "image/school5.JPG"
+    ];
+
+    let index = 0;
+    const imgElement = document.getElementById("slideshow");
+
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      imgElement.src = images[index];
+    }, 5000); // 5 seconds
+  </script>
+
+    <h3 style="margin: 5px; text-align: justify;">Welcome to <br>Shree Jana Jyoti Namuna Secondary School!</h3>  
+    <p class="p" style="text-align: justify;">  
+      Dear Students, Parents, and Visitors,<br><br>  
+      It is with great pride and enthusiasm that we welcome you to Shree Jana Jyoti Namuna  
+      Secondary School, a place of knowledge, growth, and excellence...<br><br>  
+      📚 <span class="s">"Education is the key to unlocking infinite possibilities!"</span>  
+    </p>  
+    <p class="p" style="text-align: right;">Warm regards,<br>Shree Jana Jyoti Namuna Secondary School</p>  
+  </section>  
+  <hr>    <section>  
+    <h1 style="text-align:center;">Latest News</h1>  
+    <div id="news-container"></div>  
+    <div class="pagination">  
+      <button id="prev-button" style="display:none;">Previous</button>  
+      <button id="next-button" style="display:none;">Next</button>  
+    </div>  
+  </section>    <section>  
+    <iframe  
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14133.973970564772!2d84.1808081!3d27.6711385!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399456ce7d000001%3A0x8450e6b7d036933e!2sJanajyoti%20Namuna%20Secondary%20School!5e0!3m2!1sen!2snp!4v1745726263989!5m2!1sen!2snp"  
+      width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">  
+    </iframe>  
+  </section>  
+</main>  <footer class="footer">  
+  <p>&copy; 2025 Shree Jana Jyoti Namuna Secondary School. All Rights Reserved.</p>  
+  <p>  
+    <a href="index.html">Home</a> |  
+    <a href="#">Privacy Policy</a> |  
+    <a href="#">Terms of Service</a>  
+  </p>  
+  <p>  
+    <a href="https://www.facebook.com/share/1EFB78GBa4/" target="_blank"><i class="fab fa-facebook"></i></a>  
+    <a href="mailto:jananamuna@gmail.com" style="margin-left: 10px;"><i class="fas fa-envelope"></i></a>  
+  </p>  
+</footer>  
+
+<script>  
+  function toggleSidebar() {  
+    document.getElementById("sidebar").classList.toggle("show");  
+  }  
+  
+  function detectSocialMediaApp() {  
+    const ua = navigator.userAgent || navigator.vendor || window.opera;  
+    const isSocial = /FBAN|FBAV|Instagram|Twitter|Line|WhatsApp|Messenger|Snapchat/i.test(ua);  
+    if (isSocial) {  
+      document.getElementById("popup").style.display = "flex";  
+    }  
+  }  
+  
+  function copyLink() {  
+    navigator.clipboard.writeText(window.location.href)  
+      .then(() => alert("Link copied to clipboard!"))  
+      .catch(err => console.error("Failed to copy:", err));  
+  }  
+  
+  detectSocialMediaApp();  
+</script>  <script>  
+  let currentIndex = 0;  
+  const articlesPerPage = 3;  
+  let articles = [];  
+  
+  function showArticles(startIndex) {  
+    const container = document.getElementById('news-container');  
+    container.innerHTML = '';  
+    const articlesToShow = articles.slice(startIndex, startIndex + articlesPerPage);  
+    articlesToShow.forEach(article => {  
+      container.innerHTML += `  
+        <div class="news-article">  
+          <img src="${article.image}" alt="${article.title}" class="news-image">  
+          <div class="news-content">  
+            <h3><a href="${article.link}">${article.title}</a></h3>  
+            <p class="date">Published on: ${article.date}</p>  
+            <p class="summary">${article.summary}</p>  
+            <a href="${article.link}" class="read-more">Read More...</a>  
+          </div>  
+        </div>`;  
+    });  
+    document.getElementById('prev-button').style.display = startIndex > 0 ? 'inline-block' : 'none';  
+    document.getElementById('next-button').style.display = (startIndex + articlesPerPage) < articles.length ? 'inline-block' : 'none';  
+  }  
+  
+  fetch('articles.json')  
+    .then(res => res.json())  
+    .then(data => {  
+      articles = data;  
+      showArticles(currentIndex);  
+      document.getElementById('prev-button').addEventListener('click', () => {  
+        if (currentIndex >= articlesPerPage) {  
+          currentIndex -= articlesPerPage;  
+          showArticles(currentIndex);  
+        }  
+      });  
+      document.getElementById('next-button').addEventListener('click', () => {  
+        if (currentIndex + articlesPerPage < articles.length) {  
+          currentIndex += articlesPerPage;  
+          showArticles(currentIndex);  
+        }  
+      });  
+    })  
+    .catch(error => console.error('Error loading articles:', error));  
+</script>  <script>  
+  let deferredPrompt;  
+  window.addEventListener('beforeinstallprompt', (e) => {  
+    e.preventDefault();  
+    deferredPrompt = e;  
+  
+    const installBanner = document.createElement('div');  
+    installBanner.id = 'install-banner';  
+    installBanner.style.cssText = `  
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;  
+      background: linear-gradient(135deg, #4f8bf9, #6aa9ff);  
+      display: flex; flex-direction: column; justify-content: center;  
+      align-items: center; z-index: 10000; font-family: Arial, sans-serif;  
+      color: white; text-align: center; padding: 20px;  
+    `;  
+  
+    const message = document.createElement('h2');  
+    message.innerText = 'Install Our App!';  
+    installBanner.appendChild(message);  
+  
+    const subMessage = document.createElement('p');  
+    subMessage.innerText = 'Get the best experience by installing our app on your device.';  
+    subMessage.style.marginBottom = '40px';  
+    installBanner.appendChild(subMessage);  
+  
+    const installBtn = document.createElement('button');  
+    installBtn.innerText = 'Install Now';  
+    installBtn.style.cssText = `  
+      font-size: 20px; padding: 15px 30px; background-color: #ffcc00;  
+      color: #333; border: none; border-radius: 10px; cursor: pointer;  
+      font-weight: bold;  
+    `;  
+    installBtn.onclick = async () => {  
+      installBanner.remove();  
+      deferredPrompt.prompt();  
+      const choice = await deferredPrompt.userChoice;  
+      console.log('User choice:', choice.outcome);  
+      deferredPrompt = null;  
+    };  
+  
+    installBanner.appendChild(installBtn);  
+    document.body.appendChild(installBanner);  
+  });  
+</script>  </body>  
+</html> 
+
+
