@@ -411,3 +411,23 @@ footer p {
 .sidebar .submenu li {
   padding: 4px 0;
 }
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.submenu.show {
+  max-height: 500px; /* Adjust depending on content */
+}
+.submenu {
+  display: none;
+  margin-left: 15px;
+  padding-left: 10px;
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.submenu.show {
+  display: block;
+}
