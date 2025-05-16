@@ -192,9 +192,7 @@
 
 <!-- JavaScript -->
 <script>
-  function toggleSidebar() {
-    document.getElementById("sidebar").classList.toggle("show");
-  }
+ 
 
   function detectSocialMediaApp() {
     const ua = navigator.userAgent || navigator.vendor || window.opera;
@@ -256,16 +254,15 @@
         }
       });
     });
-  
-function toggleSidebar() {
-  const sidebar = document.getElementById('sidebar');
-  sidebar.style.display = (sidebar.style.display === 'block') ? 'none' : 'block';
-}
+  function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("show");
+    }
 
-function toggleSubmenu(id) {
-  const submenu = document.getElementById(id);
-  submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';}
-
+    function toggleSubmenu(id) {
+      const submenu = document.getElementById(id);
+      submenu.classList.toggle("show");
+    }
 </script>
 
 </body>
