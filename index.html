@@ -285,5 +285,49 @@
 
 </script>
 
+<script>
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    const installBanner = document.createElement('div');
+    installBanner.id = 'install-banner';
+    installBanner.style.cssText = `
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, #4f8bf9, #6aa9ff);
+      display: flex; flex-direction: column; justify-content: center;
+      align-items: center; z-index: 10000; font-family: Arial, sans-serif;
+      color: white; text-align: center; padding: 20px;
+    `;
+
+    const message = document.createElement('h2');
+    message.innerText = 'Install Our App!';
+    installBanner.appendChild(message);
+
+    const subMessage = document.createElement('p');
+    subMessage.innerText = 'Get the best experience by installing our app on your device.';
+    subMessage.style.marginBottom = '40px';
+    installBanner.appendChild(subMessage);
+
+    const installBtn = document.createElement('button');
+    installBtn.innerText = 'Install Now';
+    installBtn.style.cssText = `
+      font-size: 20px; padding: 15px 30px; background-color: #ffcc00;
+      color: #333; border: none; border-radius: 10px; cursor: pointer;
+      font-weight: bold;
+    `;
+    installBtn.onclick = async () => {
+      installBanner.remove();
+      deferredPrompt.prompt();
+      const choice = await deferredPrompt.userChoice;
+      console.log('User choice:', choice.outcome);
+      deferredPrompt = null;
+    };
+
+    installBanner.appendChild(installBtn);
+    document.body.appendChild(installBanner);
+  });
+</script>
 </body>
 </html>
