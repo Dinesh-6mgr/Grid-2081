@@ -185,12 +185,13 @@ footer {
   text-align: center;
   padding: 0px;
   width: 100%;
+  margin: 2px;
 }
 
 footer a {
   color: white;
   text-decoration: none;
-  margin: 0  2px;
+  margin: 2px;
 }
 
 footer a:hover {
@@ -200,7 +201,7 @@ footer a:hover {
 /* Icons (Font Awesome) */
 footer i {
   margin: 0 px;
-  font-size: 12px;
+  font-size: 10px;
 }
 footer p {
     margin-top: 0;
