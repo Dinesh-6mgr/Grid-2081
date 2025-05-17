@@ -127,6 +127,9 @@
 </header>
 
 
+  <button id="install" style="display: none;">Install App</button>
+
+
 <!-- Main Content -->
 <main>
   <section class="firstsection">
@@ -273,6 +276,45 @@
     const clickedSubmenu = document.getElementById(id);
     clickedSubmenu.classList.toggle('show');
   }
+
+  let installPrompt;
+
+// Hide button if already installed
+if (window.matchMedia('(display-mode: standalone)').matches) {
+    document.getElementById('install').style.display = 'none';
+}
+
+// Listen for beforeinstallprompt
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    installPrompt = e;
+
+    // Show install button if not installed
+    if (!window.matchMedia('(display-mode: standalone)').matches) {
+        document.getElementById('install').style.display = 'block';
+    }
+});
+
+// Handle install button click
+document.getElementById('install').addEventListener('click', () => {
+    if (installPrompt) {
+        installPrompt.prompt();
+        installPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('User accepted the install prompt');
+            } else {
+                console.log('User dismissed the install prompt');
+            }
+            installPrompt = null;
+            document.getElementById('install').style.display = 'none';
+        });
+    }
+});
+
+// Hide install button when app is installed
+window.addEventListener('appinstalled', () => {
+    document.getElementById('install').style.display = 'none';
+});
 
 </script>
 
