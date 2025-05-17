@@ -210,14 +210,14 @@ footer {
   background-color: #4f8bf9;
   color: white;
   text-align: center;
-  padding: 5px;
+  padding: 0px;
   width: 100%;
 }
 
 footer a {
   color: white;
   text-decoration: none;
-  margin: 0  2px;
+  margin: 0px;
 }
 
 footer a:hover {
@@ -226,7 +226,7 @@ footer a:hover {
 
 /* Icons (Font Awesome) */
 footer i {
-  margin: 0 5px;
+  margin: 0px;
   font-size: 18px;
 }
 footer p {
@@ -242,7 +242,7 @@ footer p {
 
   footer {
     font-size: 14px;
-    padding: 5px;
+    padding: 0px;
   }
 
   footer i {
