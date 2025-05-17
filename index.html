@@ -126,6 +126,7 @@
   </div>
 </header>
 
+
 <!-- Main Content -->
 <main>
   <section class="firstsection">
@@ -177,7 +178,7 @@
 
 <!-- Footer -->
 <footer class="footer">
-  <p>&copy; 2025 Shree Jana Jyoti Namuna Secondary School. All Rights Reserved.</p>
+  <p>&copy; 2025 Shree Jana Jyoti Namuna Secondary School. <br>All Rights Reserved.</p>
   <p>
     <a href="index.html">Home</a> |
     <a href="#">Privacy Policy</a> |
@@ -191,6 +192,8 @@
 
 <!-- JavaScript -->
 <script>
+ 
+
   function detectSocialMediaApp() {
     const ua = navigator.userAgent || navigator.vendor || window.opera;
     const isSocial = /FBAN|FBAV|Instagram|Twitter|Line|WhatsApp|Messenger|Snapchat/i.test(ua);
@@ -206,7 +209,9 @@
   }
 
   detectSocialMediaApp();
+</script>
 
+<script>
   let currentIndex = 0;
   const articlesPerPage = 3;
   let articles = [];
@@ -249,20 +254,26 @@
         }
       });
     });
-
+  
+  // Toggle the main sidebar open/close
   function toggleSidebar() {
     document.getElementById("sidebar").classList.toggle("show");
   }
 
+  // Accordion-style submenu toggle
   function toggleSubmenu(id) {
     const allSubmenus = document.querySelectorAll('.submenu');
+
     allSubmenus.forEach(submenu => {
       if (submenu.id !== id) {
         submenu.classList.remove('show');
       }
     });
-    document.getElementById(id).classList.toggle('show');
+
+    const clickedSubmenu = document.getElementById(id);
+    clickedSubmenu.classList.toggle('show');
   }
+
 </script>
 
 </body>
