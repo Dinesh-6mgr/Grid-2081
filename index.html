@@ -84,29 +84,52 @@
     document.getElementById('popup').style.display = 'none';  
   }  
 </script>  <header>  
-  <nav class="a">  
-    <img src="image/logo.png" alt="School Logo" width="80" height="80" style="margin-left: 40px;">  
-    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>  
-  </nav>  
-  <div class="sidebar" id="sidebar">  
-    <h3>Menu</h3>  
-    <ul>  
-      <li><a href="index.html">Home</a></li>  
-      <li><a href="html/nur.html">Nursery</a></li>  
-      <li><a href="html/kg.html">KG</a></li>  
-      <li><a href="html/class1.html">Class 1</a></li>  
-      <li><a href="html/class2.html">Class 2</a></li>  
-      <li><a href="html/class3.html">Class 3</a></li>  
-      <li><a href="html/class4.html">Class 4</a></li>  
-      <li><a href="html/class5.html">Class 5</a></li>  
-      <li><a href="html/class6.html">Class 6</a></li>  
-      <li><a href="html/class7.html">Class 7</a></li>  
-      <li><a href="html/class8.html">Class 8</a></li>  
-      <li><a href="html/class9.html">Class 9</a></li>  
-      <li><a href="html/class10.html">Class 10</a></li>  
-    </ul>  
-  </div>  
-</header>  <main>  
+   <nav class="a">
+    <img src="image/logo.png" alt="School Logo" width="80" height="80" style="margin-left: 40px;">
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+  </nav>
+
+  <div class="sidebar" id="sidebar">
+    <h3>Menu</h3>
+    <ul>
+      <li>
+        <a href="javascript:void(0);" onclick="toggleSubmenu('gridSubmenu')">Grid 2081 ▼</a>
+        <ul id="gridSubmenu" class="submenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="html/nur.html">Nursery</a></li>
+          <li><a href="html/kg.html">KG</a></li>
+          <li><a href="html/class1.html">Class 1</a></li>
+          <li><a href="html/class2.html">Class 2</a></li>
+          <li><a href="html/class3.html">Class 3</a></li>
+          <li><a href="html/class4.html">Class 4</a></li>
+          <li><a href="html/class5.html">Class 5</a></li>
+          <li><a href="html/class6.html">Class 6</a></li>
+          <li><a href="html/class7.html">Class 7</a></li>
+          <li><a href="html/class8.html">Class 8</a></li>
+          <li><a href="html/class9.html">Class 9</a></li>
+          <li><a href="html/class10.html">Class 10</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="javascript:void(0);" onclick="toggleSubmenu('teacherSubmenu')">Teacher Guidebook ▼</a>
+        <ul id="teacherSubmenu" class="submenu">
+          <li><a href="TeacherGuidebook/html/class1.html">Class 1</a></li>
+          <li><a href="TeacherGuidebook/html/class2.html">Class 2</a></li>
+          <li><a href="TeacherGuidebook/html/class3.html">Class 3</a></li>
+          <li><a href="TeacherGuidebook/html/class4.html">Class 4</a></li>
+          <li><a href="TeacherGuidebook/html/class5.html">Class 5</a></li>
+          <li><a href="TeacherGuidebook/html/class6.html">Class 6</a></li>
+          <li><a href="TeacherGuidebook/html/class7.html">Class 7</a></li>
+          <li><a href="TeacherGuidebook/html/class8.html">Class 8</a></li>
+          <li><a href="TeacherGuidebook/html/class9.html">Class 9</a></li>
+          <li><a href="TeacherGuidebook/html/class10.html">Class 10</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+  <main>  
   <section class="firstsection">  
     <img src="image/school.png" alt="School" class="school" style="padding: 5px;">  
     <h3 style="margin: 5px; text-align: justify;">Welcome to <br>Shree Jana Jyoti Namuna Secondary School!</h3>  
@@ -251,5 +274,23 @@
     installBanner.appendChild(installBtn);  
     document.body.appendChild(installBanner);  
   });  
+    // Toggle the main sidebar open/close
+  function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("show");
+  }
+
+  // Accordion-style submenu toggle
+  function toggleSubmenu(id) {
+    const allSubmenus = document.querySelectorAll('.submenu');
+
+    allSubmenus.forEach(submenu => {
+      if (submenu.id !== id) {
+        submenu.classList.remove('show');
+      }
+    });
+
+    const clickedSubmenu = document.getElementById(id);
+    clickedSubmenu.classList.toggle('show');
+  }
 </script>  </body>  
 </html>
