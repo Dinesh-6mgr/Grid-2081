@@ -183,15 +183,14 @@ footer {
   background-color: #4f8bf9;
   color: white;
   text-align: center;
-  padding: 0px;
+  padding: 5px;
   width: 100%;
-  margin: 2px;
 }
 
 footer a {
   color: white;
   text-decoration: none;
-  margin: 2px;
+  margin: 0  2px;
 }
 
 footer a:hover {
@@ -200,12 +199,12 @@ footer a:hover {
 
 /* Icons (Font Awesome) */
 footer i {
-  margin: 0 px;
-  font-size: 10px;
+  margin: 0 5px;
+  font-size: 18px;
 }
 footer p {
     margin-top: 0;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
 }
   
 @media (max-width: 768px) {  
