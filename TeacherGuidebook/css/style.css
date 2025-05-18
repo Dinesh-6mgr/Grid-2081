@@ -1,0 +1,336 @@
+/* Global Reset */  
+* {  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+    font-family: "Poppins", sans-serif;  
+}  
+  
+body {  
+    height: 100%;  
+    margin: 0;  
+    display: flex;  
+    flex-direction: column;  
+    background: #ffffff;  
+    color: #222;  
+}  
+  
+.main-content {  
+    flex: 1;  
+}  
+  
+nav {  
+    display: flex;  
+    align-items: center;  
+    justify-content: space-between;  
+    height: 90px;  
+    background-color: #4f8bf9;  
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+    padding: 0 50px;  
+    border-bottom: 2px solid #FFD700;  
+    position: fixed;  
+    width: 100%;  
+    top: 0;  
+    z-index: 10000;  
+}  
+  
+nav ul {  
+    display: flex;  
+    list-style: none;  
+}  
+  
+nav ul li {  
+    margin: 0 10px;  
+}  
+  
+nav ul li a {  
+    font-size: 18px;  
+    color: #f0f0f0;  
+    text-decoration: none;  
+    transition: 0.3s;  
+}  
+  
+nav ul li a:hover {  
+    color: #FFD700;  
+    font-size: 1.2em;  
+}  
+  
+.firstsection {  
+    text-align: center;  
+    padding: 100px 50px 50px 50px;  
+}  
+  
+.school {  
+    padding: 10px;  
+    width: 250px;  
+    height: 150px;  
+    margin: 25px;  
+    float: right;  
+    border-radius: 10px;  
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);  
+}  
+  
+.sidebar {  
+    position: fixed;  
+    top: 90px;  
+    left: -260px;  
+    width: fit-content;  
+    height: calc(100% - 90px);  
+    background: #4f8bf9;  
+    backdrop-filter: blur(10px);  
+    padding: 10px;  
+    color: white;  
+    transition: left 0.3s ease-in-out;  
+    box-shadow: 3px 0px 15px rgba(0, 0, 0, 0.3);  
+    z-index: 9999;  
+}  
+  
+.sidebar.show {  
+    left: 0;  
+}  
+  
+.sidebar ul {  
+    list-style: none;  
+    padding: 0;  
+}  
+  
+.sidebar ul li {  
+    margin: 5px 0;  
+    padding: 2px 10px;  
+    border-radius: 8px;  
+    transition: 0.3s;  
+}  
+  
+.sidebar ul li a {  
+    color: white;  
+    text-decoration: none;  
+    font-size: 17px;  
+    display: block;  
+    transition: 0.3s;  
+}  
+  
+.sidebar ul li:hover {  
+    background-color: rgba(255, 215, 0, 0.2);  
+    transform: translateX(5px);  
+}  
+  
+.sidebar ul li a:hover {  
+    color: #FFD700;  
+}  
+  
+/* Enhanced Toggle Button */  
+.toggle-btn {  
+    position: fixed;  
+    top: 20px;  
+    left: 20px;  
+    background-color: #FFD700;  
+    color: #222;  
+    border: none;  
+    padding: 12px 16px;  
+    font-size: 26px;  
+    border-radius: 30px;  
+    cursor: pointer;  
+    z-index: 10001;  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  
+    display: flex;  
+    align-items: center;  
+    gap: 8px;  
+    animation: pulse 2s infinite;  
+    transition: background 0.3s ease;  
+}  
+  
+.toggle-btn:hover {  
+    background-color: #ffc107;  
+}  
+  
+.toggle-label {  
+    font-size: 18px;  
+    font-weight: 500;  
+}  
+  
+@keyframes pulse {  
+    0% { transform: scale(1); }  
+    50% { transform: scale(1.1); }  
+    100% { transform: scale(1); }  
+}  
+  
+.cancel-btn {  
+    position: absolute;  
+    top: 10px;  
+    right: 10px;  
+    background-color: transparent;  
+    color: white;  
+    border: none;  
+    font-size: 22px;  
+    cursor: pointer;  
+    padding: 5px 10px;  
+    transition: 0.3s;  
+}  
+  
+.cancel-btn:hover {  
+    color: #FFD700;  
+}  
+  
+.div {  
+    margin: 25px 25px 25px 50px;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+}  
+  
+ /* Footer styles */
+footer {
+  background-color: #4f8bf9;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  width: 100%;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0  2px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Icons (Font Awesome) */
+footer i {
+  margin: 0 5px;
+  font-size: 18px;
+}
+footer p {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+  
+@media (max-width: 768px) {  
+    nav {  
+        flex-direction: column;  
+        padding: 10px;  
+    }  
+  
+    nav ul {  
+        flex-direction: column;  
+        text-align: center;  
+    }  
+  
+    nav ul li {  
+        margin: 10px 0;  
+    }  
+  
+    .firstsection {  
+        padding: 90px 20px 30px;  
+    }  
+  
+    .school {  
+        width: 90%;  
+        height: auto;  
+        margin: 15px auto;  
+        float: none;  
+    }  
+  
+    .sidebar {  
+        top: 90px;  
+        width: fit-content;  
+        left: -220px;  
+    }  
+  
+    .sidebar.show {  
+        left: 0;  
+    }  
+  
+    .toggle-btn {  
+        top: 15px;  
+        left: 10px;  
+        font-size: 22px;  
+    }  
+  
+    .cancel-btn {  
+        font-size: 18px;  
+    }  
+}  
+  
+.news-article {  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+    margin-bottom: 30px;  
+    padding: 20px;  
+    border: 1px solid rgba(255, 255, 255, 0.2);  
+    border-radius: 15px;  
+    background: rgba(255, 255, 255, 0.15);  
+    backdrop-filter: blur(10px);  
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);  
+    transition: transform 0.4s ease, box-shadow 0.4s ease;  
+}  
+  
+.news-article:hover {  
+    transform: scale(1.02) translateY(-8px);  
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);  
+}  
+  
+.news-article img {  
+    width: 100%;  
+    max-width: 800px;  
+    height: auto;  
+    object-fit: cover;  
+    border-radius: 10px;  
+    margin-bottom: 20px;  
+    transition: transform 0.3s ease;  
+}  
+  
+.news-article img:hover {  
+    transform: scale(1.05);  
+}  
+  
+.news-article h3 {  
+    font-size: 2em;  
+    margin: 15px 0 10px;  
+    color: #222;  
+    text-align: center;  
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);  
+}  
+  
+.news-article p.date {  
+    font-size: 0.95em;  
+    color: #666;  
+    margin-bottom: 10px;  
+}  
+  
+.news-article p.summary {  
+    font-size: 1.1em;  
+    color: #444;  
+    text-align: center;  
+    line-height: 1.8;  
+    margin-bottom: 20px;  
+    padding: 0 10px;  
+}  
+  
+.news-article .read-more {  
+    font-size: 1.1em;  
+    color: #4f8bf9;  
+    text-decoration: none;  
+    font-weight: bold;  
+    border-bottom: 2px solid transparent;  
+    transition: color 0.3s ease, border-color 0.3s ease;  
+}  
+  
+.news-article .read-more:hover {  
+    color: #3a74d1;  
+    border-color: #3a74d1;  
+}  
+  
+.pagination {  
+    margin-top: 30px;  
+    text-align: center;  
+}  
+  
+.pagination button {  
+    background: linear-gradient(to right, #4f8bf9, #3a74d1);  
+    color: white;  
+    padding: 10px 20px;  
+    margin: 5px;
