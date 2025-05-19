@@ -1,13 +1,9 @@
 const CACHE_NAME = 'grid-2081-cache-v2';
 const urlsToCache = [
-    '/',
-    '/index.html',
     '/style.css',
     '/image/logo.png',
     '/image/Image.png',
     '/image/school.png',
-    '/html/class1.html',
-    '/html/class2.html',
     '/js/html.js',
     '/articles.json',
     '/offline.html', // Fallback page
