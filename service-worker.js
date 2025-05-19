@@ -1,58 +1,70 @@
-const CACHE_NAME = 'grid-2081-cache-v2'; // Changed cache version
-
+const CACHE_NAME = 'grid-2081-cache-v2';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/image/logo.png',
-  '/image/Image.png',
-  '/image/school.png',
-  '/html/class1.html',
-  '/html/class2.html',
-  '/js/html.js',
-  '/articles.json',
-  // Add other static files if needed
+    '/',
+    '/index.html',
+    '/style.css',
+    '/image/logo.png',
+    '/image/Image.png',
+    '/image/school.png',
+    '/html/class1.html',
+    '/html/class2.html',
+    '/js/html.js',
+    '/articles.json',
+    '/offline.html', // Fallback page
+    // Add PDF paths if needed
 ];
 
-// Install event - cache static files
+// Install and cache essential files
 self.addEventListener('install', event => {
-  self.skipWaiting(); // Activate immediately
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
-  );
+    self.skipWaiting();
+    event.waitUntil(
+        caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
+    );
 });
 
-// Activate event - clear old caches
+// Clean up old caches
 self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cache => {
-          if (cache !== CACHE_NAME) {
-            return caches.delete(cache); // Delete old version
-          }
-        })
-      );
-    })
-  );
+    event.waitUntil(
+        caches.keys().then(keys => {
+            return Promise.all(
+                keys.filter(key => key !== CACHE_NAME)
+                    .map(key => caches.delete(key))
+            );
+        }).then(() => self.clients.claim())
+    );
 });
 
-// Fetch event - network first, fallback to cache
+// Fetch event handler
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    fetch(event.request)
-      .then(response => {
-        // Save fresh version to cache
-        const clonedResponse = response.clone();
-        caches.open(CACHE_NAME).then(cache => {
-          cache.put(event.request, clonedResponse);
-        });
-        return response;
-      })
-      .catch(() => {
-        // If offline or fetch fails, use cache
-        return caches.match(event.request);
-      })
-  );
+    const requestUrl = new URL(event.request.url);
+
+    // Always fetch PDFs from network and cache them
+    if (requestUrl.pathname.endsWith('.pdf')) {
+        event.respondWith(
+            fetch(event.request).then(response => {
+                return caches.open(CACHE_NAME).then(cache => {
+                    cache.put(event.request, response.clone());
+                    return response;
+                });
+            }).catch(() => caches.match(event.request))
+        );
+        return;
+    }
+
+    // Cache-first strategy with fallback
+    event.respondWith(
+        caches.match(event.request).then(response => {
+            return response || fetch(event.request).then(fetchResponse => {
+                return caches.open(CACHE_NAME).then(cache => {
+                    cache.put(event.request, fetchResponse.clone());
+                    return fetchResponse;
+                });
+            });
+        }).catch(() => {
+            // Fallback for HTML pages when offline
+            if (event.request.headers.get('accept')?.includes('text/html')) {
+                return caches.match('/offline.html');
+            }
+        })
+    );
 });
