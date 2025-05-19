@@ -1,4 +1,5 @@
-const CACHE_NAME = 'grid-2081-cache-v1';
+const CACHE_NAME = 'grid-2081-cache-v2'; // Changed cache version
+
 const urlsToCache = [
   '/',
   '/index.html',
@@ -10,23 +11,48 @@ const urlsToCache = [
   '/html/class2.html',
   '/js/html.js',
   '/articles.json',
-  // Add other html pages if needed
+  // Add other static files if needed
 ];
 
+// Install event - cache static files
 self.addEventListener('install', event => {
+  self.skipWaiting(); // Activate immediately
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => {
-        return cache.addAll(urlsToCache);
-      })
+      .then(cache => cache.addAll(urlsToCache))
   );
 });
 
+// Activate event - clear old caches
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cache => {
+          if (cache !== CACHE_NAME) {
+            return caches.delete(cache); // Delete old version
+          }
+        })
+      );
+    })
+  );
+});
+
+// Fetch event - network first, fallback to cache
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
+    fetch(event.request)
       .then(response => {
-        return response || fetch(event.request);
+        // Save fresh version to cache
+        const clonedResponse = response.clone();
+        caches.open(CACHE_NAME).then(cache => {
+          cache.put(event.request, clonedResponse);
+        });
+        return response;
+      })
+      .catch(() => {
+        // If offline or fetch fails, use cache
+        return caches.match(event.request);
       })
   );
 });
