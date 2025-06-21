@@ -24,7 +24,7 @@ nav {
     align-items: center;  
     justify-content: space-between;  
     height: 90px;  
-    background-color: #4f8bf9;  
+    background-color: #7AC943;  
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
     padding: 0 50px;  
     border-bottom: 2px solid #FFD700;  
@@ -180,7 +180,7 @@ nav ul li a:hover {
   
  /* Footer styles */
 footer {
-  background-color: #4f8bf9;
+  background-color: #7AC943;
   color: white;
   text-align: center;
   padding: 5px;
@@ -320,8 +320,9 @@ footer p {
 }  
   
 .news-article .read-more:hover {  
-    color: #3a74d1;  
-    border-color: #3a74d1;  
+    color: #7AC943;  
+    border-color: #7AC943
+;  
 }  
   
 .pagination {  
@@ -330,7 +331,7 @@ footer p {
 }  
   
 .pagination button {  
-    background: linear-gradient(to right, #4f8bf9, #3a74d1);  
+    background: linear-gradient(to right, #7fea33, #7AC943);  
     color: white;  
     padding: 10px 20px;  
     margin: 5px;}
