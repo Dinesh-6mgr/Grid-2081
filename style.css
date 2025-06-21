@@ -76,7 +76,7 @@ nav ul li a:hover {
     left: -260px;  
     width: fit-content;  
     height: calc(100% - 90px);  
-    background: #4f8bf9;  
+    background: #7AC943;  
     backdrop-filter: blur(10px);  
     padding: 10px;  
     color: white;  
@@ -312,7 +312,7 @@ footer p {
   
 .news-article .read-more {  
     font-size: 1.1em;  
-    color: #4f8bf9;  
+    color: #7AC943;  
     text-decoration: none;  
     font-weight: bold;  
     border-bottom: 2px solid transparent;  
