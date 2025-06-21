@@ -24,7 +24,7 @@ nav {
     align-items: center;  
     justify-content: space-between;  
     height: 90px;  
-    background-color: #7AC943;  
+    background-color: #4f8bf9;  
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
     padding: 0 50px;  
     border-bottom: 2px solid #FFD700;  
@@ -76,7 +76,7 @@ nav ul li a:hover {
     left: -260px;  
     width: fit-content;  
     height: calc(100% - 90px);  
-    background: #7AC943;  
+    background: #4f8bf9;  
     backdrop-filter: blur(10px);  
     padding: 10px;  
     color: white;  
@@ -180,7 +180,7 @@ nav ul li a:hover {
   
 /* Footer styles */
 footer {
-  background-color: #7AC943;
+  background-color: #4f8bf9;
   color: white;
   text-align: center;
   padding: 5px;
@@ -329,12 +329,7 @@ footer p {
 }  
   
 .pagination button {  
-    background: linear-gradient(to right, #74db2b, #7AC943);  
+    background: linear-gradient(to right, #4f8bf9, #3a74d1);  
     color: white;  
     padding: 10px 20px;  
-    margin: 5px;
-}
-btn btn-primary {
-    background-color: #7AC943
-;
-}
+    margin: 5px;}
