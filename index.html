@@ -201,6 +201,9 @@
     </div>
   </header>
 
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
   <!-- Page Hero -->
   <section class="hero" id="hero">
     <div class="hero__overlay"></div>
@@ -329,6 +332,7 @@
     /* Mobile menu */
     const navToggle = qs('#navToggle');
     const mainNav = qs('#mainNav');
+    const mobileMenuOverlay = qs('#mobileMenuOverlay');
     let hideMenu = true;
 
     function toggleMenu() {
@@ -336,6 +340,14 @@
       console.log('Menu toggled, hideMenu:', hideMenu); // Debug log
       navToggle.setAttribute('aria-expanded', String(!hideMenu));
       mainNav.classList.toggle('nav--open', !hideMenu);
+      
+      // Toggle overlay
+      if (mobileMenuOverlay) {
+        mobileMenuOverlay.classList.toggle('active', !hideMenu);
+      }
+      
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = hideMenu ? '' : 'hidden';
       
       // Change icon based on menu state
       const icon = navToggle.querySelector('i');
@@ -368,12 +380,25 @@
       toggleMenu();
     });
 
+    // Close menu when clicking overlay
+    if (mobileMenuOverlay) {
+      mobileMenuOverlay.addEventListener('click', () => {
+        if (!hideMenu) {
+          toggleMenu();
+        }
+      });
+    }
+
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
       if (!hideMenu && !mainNav.contains(e.target) && !navToggle.contains(e.target)) {
         hideMenu = true;
         navToggle.setAttribute('aria-expanded', 'false');
         mainNav.classList.remove('nav--open');
+        if (mobileMenuOverlay) {
+          mobileMenuOverlay.classList.remove('active');
+        }
+        document.body.style.overflow = '';
         const icon = navToggle.querySelector('i');
         icon.className = 'fa-solid fa-bars';
         navToggle.setAttribute('aria-label', 'Open menu');
