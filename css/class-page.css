@@ -17,6 +17,14 @@ body {
   overflow-x: hidden;
 }
 
+/* Fix mobile background */
+@media (max-width: 900px) {
+  body {
+    background: #ffffff;
+    background-color: #ffffff;
+  }
+}
+
 /* ── Top Bar ── */
 .topbar {
   position: fixed;
@@ -208,7 +216,41 @@ body {
 .footer__social a { margin: 0 8px; }
 
 /* ── Mobile Responsive ── */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: flex !important;
+  }
+  
+  .back-btn {
+    display: none !important;
+  }
+  
+  .topbar {
+    padding: 0 16px;
+  }
+  
+  .topbar__title {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 480px) {
+  .menu-toggle {
+    display: flex !important;
+    padding: 8px;
+    min-width: 36px;
+    min-height: 36px;
+  }
+  
+  .menu-toggle span {
+    width: 18px;
+    height: 2px;
+  }
+  
+  .back-btn {
+    display: none !important;
+  }
+  
   .topbar {
     padding: 0 12px;
     height: 60px;
@@ -338,5 +380,178 @@ body {
   
   .subject-card__body { 
     padding: 16px 18px 18px; 
+  }
+}
+
+/* ── Mobile Menu ── */
+.menu-toggle {
+  display: none;
+  background: rgba(79, 139, 249, 0.1);
+  border: 1px solid rgba(79, 139, 249, 0.3);
+  cursor: pointer;
+  padding: 10px;
+  order: 4;
+  z-index: 1001;
+  border-radius: 6px;
+  min-width: 40px;
+  min-height: 40px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.menu-toggle:hover {
+  background: rgba(79, 139, 249, 0.2);
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 70px;
+  left: -100%;
+  width: 300px;
+  height: calc(100vh - 70px);
+  background: #0B1437;
+  transition: left 0.3s ease;
+  z-index: 999;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+  overflow-y: auto;
+}
+
+.mobile-menu.active {
+  left: 0;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu li {
+  margin: 4px 0;
+}
+
+.mobile-menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 16px;
+  display: block;
+  border-radius: 8px;
+  transition: background 0.2s;
+  font-size: 0.9rem;
+}
+
+.mobile-menu a:hover {
+  background: rgba(79, 139, 249, 0.2);
+}
+
+.mobile-menu a i {
+  margin-right: 10px;
+  width: 16px;
+}
+
+/* Menu sections */
+.menu-section {
+  margin: 15px 0;
+}
+
+.menu-section-title {
+  color: #4f8bf9;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 8px 16px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 6px;
+  background: rgba(79, 139, 249, 0.1);
+}
+
+.menu-section-title:hover {
+  background: rgba(79, 139, 249, 0.15);
+}
+
+.menu-section-title i {
+  transition: transform 0.2s;
+}
+
+/* Default collapsed state */
+.menu-section {
+  margin: 15px 0;
+}
+
+.menu-section .menu-section-title i {
+  transform: rotate(-90deg);
+}
+
+.menu-section .menu-section-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+/* Expanded state */
+.menu-section.expanded .menu-section-title i {
+  transform: rotate(0deg);
+}
+
+.menu-section.expanded .menu-section-content {
+  max-height: 500px;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  display: none;
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+/* Mobile floating action button for class pages */
+.mobile-fab {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f8bf9, #6aa9ff);
+  color: #fff;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 50;
+  font-size: 1.2rem;
+}
+
+.mobile-fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(79, 139, 249, 0.3);
+}
+
+@media (max-width: 900px) {
+  .mobile-fab {
+    display: flex;
   }
 }

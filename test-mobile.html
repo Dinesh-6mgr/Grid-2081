@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Mobile Test</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/class-page.css">
+  <style>
+    /* Force hamburger to show for testing */
+    .menu-toggle { display: flex !important; }
+    .back-btn { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <img src="image/logo.png" alt="Logo" class="topbar__logo">
+    <span class="topbar__title">Grid 2081</span>
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Home</a>
+    
+    <button class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="html/nur.html">Nursery</a></li>
+      <li><a href="html/kg.html">KG</a></li>
+      <li><a href="html/class1.html">Class 1</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <div class="page-hero__badge">Test</div>
+    <h1 class="page-hero__title">Mobile Menu Test</h1>
+    <p class="page-hero__sub">Testing hamburger menu visibility</p>
+  </section>
+
+  <main class="subjects">
+    <div class="subjects__grid">
+      <div class="subject-card accent-blue">
+        <div class="subject-card__icon"><i class="fas fa-test"></i></div>
+        <div class="subject-card__body">
+          <span class="subject-card__subject">Test</span>
+          <p class="subject-card__title">Test Card</p>
+          <div class="subject-card__actions">
+            <a href="#" class="btn-view"><i class="fas fa-eye"></i> View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function toggleMenu() {
+      menuToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      menuOverlay.classList.toggle('active');
+      console.log('Menu toggled!');
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    menuOverlay.addEventListener('click', toggleMenu);
+
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        toggleMenu();
+      }
+    });
+
+    console.log('Mobile menu script loaded');
+  </script>
+
+</body>
+</html>

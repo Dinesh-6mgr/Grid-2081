@@ -15,7 +15,65 @@
     <img src="../image/logo.png" alt="Logo" class="topbar__logo">
     <span class="topbar__title">Teacher Guidebook</span>
     <a href="../../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Home</a>
+      <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
   </header>
+
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
+    </ul>
+    
+    <div class="menu-section">
+      <div class="menu-section-title" onclick="toggleSection('classes')">
+        <span><i class="fas fa-graduation-cap"></i> Classes</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="menu-section-content" id="classes">
+        <ul>
+          <li><a href="../../html/nur.html">Nursery</a></li>
+          <li><a href="../../html/kg.html">KG</a></li>
+          <li><a href="../../html/class1.html">Class 1</a></li>
+          <li><a href="../../html/class2.html">Class 2</a></li>
+          <li><a href="../../html/class3.html">Class 3</a></li>
+          <li><a href="../../html/class4.html">Class 4</a></li>
+          <li><a href="../../html/class5.html">Class 5</a></li>
+          <li><a href="../../html/class6.html">Class 6</a></li>
+          <li><a href="../../html/class7.html">Class 7</a></li>
+          <li><a href="../../html/class8.html">Class 8</a></li>
+          <li><a href="../../html/class9.html">Class 9</a></li>
+          <li><a href="../../html/class10.html">Class 10</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="menu-section">
+      <div class="menu-section-title" onclick="toggleSection('teacher-guide')">
+        <span><i class="fas fa-chalkboard-teacher"></i> Teacher Guide</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="menu-section-content" id="teacher-guide">
+        <ul>
+          <li><a href="../html/class1.html">Class 1</a></li>
+          <li><a href="../html/class2.html">Class 2</a></li>
+          <li><a href="../html/class3.html">Class 3</a></li>
+          <li><a href="../html/class4.html">Class 4</a></li>
+          <li><a href="../html/class5.html">Class 5</a></li>
+          <li><a href="../html/class6.html">Class 6</a></li>
+          <li><a href="../html/class7.html">Class 7</a></li>
+          <li><a href="../html/class8.html">Class 8</a></li>
+          <li><a href="../html/class9.html">Class 9</a></li>
+          <li><a href="../html/class10.html">Class 10</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <ul>
+      <li><a href="../../html/specificgrid.html"><i class="fas fa-book"></i> Curriculum</a></li>
+      <li><a href="https://ictmis.mycemserp.com/Teacher/" target="_blank"><i class="fas fa-user-tie"></i> Teacher Login</a></li>
+      <li><a href="https://ictmis.mycemserp.com/Student" target="_blank"><i class="fas fa-user-graduate"></i> Student Login</a></li>
+    </ul>
+  </nav>
   <section class="page-hero">
     <div class="page-hero__badge">Teacher Guide</div>
     <h1 class="page-hero__title">Class 8 – Teacher Guidebooks</h1>
@@ -37,5 +95,42 @@
       <a href="mailto:jananamuna@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
   </footer>
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function toggleMenu() {
+      menuToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      menuOverlay.classList.toggle('active');
+    }
+
+    function toggleSection(sectionId) {
+      const section = document.getElementById(sectionId).parentElement;
+      
+      // Close all other sections first (accordion behavior)
+      document.querySelectorAll('.menu-section').forEach(otherSection => {
+        if (otherSection !== section) {
+          otherSection.classList.remove('expanded');
+        }
+      });
+      
+      // Toggle current section
+      section.classList.toggle('expanded');
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    menuOverlay.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking on a link
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        toggleMenu();
+      }
+    });
+  </script>
+
 </body>
 </html>

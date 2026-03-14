@@ -16,7 +16,65 @@
     <img src="../image/logo.png" alt="Logo" class="topbar__logo">
     <span class="topbar__title">Grid 2081</span>
     <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Home</a>
+      <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
   </header>
+
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+    </ul>
+    
+    <div class="menu-section">
+      <div class="menu-section-title" onclick="toggleSection('classes')">
+        <span><i class="fas fa-graduation-cap"></i> Classes</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="menu-section-content" id="classes">
+        <ul>
+          <li><a href="../html/nur.html">Nursery</a></li>
+          <li><a href="../html/kg.html">KG</a></li>
+          <li><a href="../html/class1.html">Class 1</a></li>
+          <li><a href="../html/class2.html">Class 2</a></li>
+          <li><a href="../html/class3.html">Class 3</a></li>
+          <li><a href="../html/class4.html">Class 4</a></li>
+          <li><a href="../html/class5.html">Class 5</a></li>
+          <li><a href="../html/class6.html">Class 6</a></li>
+          <li><a href="../html/class7.html">Class 7</a></li>
+          <li><a href="../html/class8.html">Class 8</a></li>
+          <li><a href="../html/class9.html">Class 9</a></li>
+          <li><a href="../html/class10.html">Class 10</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="menu-section">
+      <div class="menu-section-title" onclick="toggleSection('teacher-guide')">
+        <span><i class="fas fa-chalkboard-teacher"></i> Teacher Guide</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="menu-section-content" id="teacher-guide">
+        <ul>
+          <li><a href="../TeacherGuidebook/html/class1.html">Class 1</a></li>
+          <li><a href="../TeacherGuidebook/html/class2.html">Class 2</a></li>
+          <li><a href="../TeacherGuidebook/html/class3.html">Class 3</a></li>
+          <li><a href="../TeacherGuidebook/html/class4.html">Class 4</a></li>
+          <li><a href="../TeacherGuidebook/html/class5.html">Class 5</a></li>
+          <li><a href="../TeacherGuidebook/html/class6.html">Class 6</a></li>
+          <li><a href="../TeacherGuidebook/html/class7.html">Class 7</a></li>
+          <li><a href="../TeacherGuidebook/html/class8.html">Class 8</a></li>
+          <li><a href="../TeacherGuidebook/html/class9.html">Class 9</a></li>
+          <li><a href="../TeacherGuidebook/html/class10.html">Class 10</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <ul>
+      <li><a href="../html/specificgrid.html"><i class="fas fa-book"></i> Curriculum</a></li>
+      <li><a href="https://ictmis.mycemserp.com/Teacher/" target="_blank"><i class="fas fa-user-tie"></i> Teacher Login</a></li>
+      <li><a href="https://ictmis.mycemserp.com/Student" target="_blank"><i class="fas fa-user-graduate"></i> Student Login</a></li>
+    </ul>
+  </nav>
 
   <section class="page-hero">
     <div class="page-hero__badge">Class 1</div>
@@ -85,6 +143,113 @@
       <a href="mailto:jananamuna@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
   </footer>
+
+  <!-- Mobile floating action button -->
+  <button class="mobile-fab" aria-label="Quick access menu" id="mobileFab">
+    <i class="fas fa-plus"></i>
+  </button>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function toggleMenu() {
+      menuToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      menuOverlay.classList.toggle('active');
+    }
+
+    function toggleSection(sectionId) {
+      const section = document.getElementById(sectionId).parentElement;
+      
+      // Close all other sections first (accordion behavior)
+      document.querySelectorAll('.menu-section').forEach(otherSection => {
+        if (otherSection !== section) {
+          otherSection.classList.remove('expanded');
+        }
+      });
+      
+      // Toggle current section
+      section.classList.toggle('expanded');
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    menuOverlay.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking on a link
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        toggleMenu();
+      }
+    });
+
+    // Mobile FAB functionality
+    const mobileFab = document.getElementById('mobileFab');
+    let fabMenuOpen = false;
+
+    if (mobileFab) {
+      mobileFab.addEventListener('click', () => {
+        if (!fabMenuOpen) {
+          // Show quick access options
+          const quickMenu = document.createElement('div');
+          quickMenu.id = 'fab-menu';
+          quickMenu.style.cssText = `
+            position: fixed;
+            bottom: 100px;
+            left: 28px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.12);
+            padding: 12px;
+            z-index: 49;
+            min-width: 200px;
+            border: 1px solid rgba(0,0,0,.1);
+          `;
+          
+          quickMenu.innerHTML = `
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <a href="../index.html" style="padding: 12px 16px; border-radius: 8px; background: rgba(79, 139, 249, 0.1); color: #4f8bf9; text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 500;">
+                <i class="fas fa-home"></i> Home
+              </a>
+              <a href="../html/specificgrid.html" style="padding: 12px 16px; border-radius: 8px; background: rgba(79, 139, 249, 0.1); color: #4f8bf9; text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 500;">
+                <i class="fas fa-book"></i> Curriculum
+              </a>
+              <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="padding: 12px 16px; border-radius: 8px; background: rgba(79, 139, 249, 0.1); color: #4f8bf9; border: none; cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 500; width: 100%;">
+                <i class="fas fa-arrow-up"></i> Scroll to Top
+              </button>
+            </div>
+          `;
+          
+          document.body.appendChild(quickMenu);
+          mobileFab.innerHTML = '<i class="fas fa-times"></i>';
+          fabMenuOpen = true;
+          
+          // Close menu when clicking outside
+          setTimeout(() => {
+            document.addEventListener('click', function closeFabMenu(e) {
+              if (!quickMenu.contains(e.target) && !mobileFab.contains(e.target)) {
+                quickMenu.remove();
+                mobileFab.innerHTML = '<i class="fas fa-plus"></i>';
+                fabMenuOpen = false;
+                document.removeEventListener('click', closeFabMenu);
+              }
+            });
+          }, 100);
+          
+        } else {
+          // Close menu
+          const existingMenu = document.getElementById('fab-menu');
+          if (existingMenu) {
+            existingMenu.remove();
+          }
+          mobileFab.innerHTML = '<i class="fas fa-plus"></i>';
+          fabMenuOpen = false;
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>

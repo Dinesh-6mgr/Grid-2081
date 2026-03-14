@@ -118,6 +118,11 @@
     <i class="fas fa-chevron-up"></i>
   </button>
 
+  <!-- Mobile floating action button -->
+  <button class="mobile-fab" aria-label="Quick access menu" id="mobileFab">
+    <i class="fas fa-plus"></i>
+  </button>
+
   <!-- Social Media App Warning Popup -->
   <div id="popup">
     <div class="popup-box">
@@ -133,15 +138,13 @@
   <!-- Header / Top navigation -->
   <header class="topbar" id="topbar">
     <div class="container topbar__container">
-      <a href="#hero" class="brand">
+      <a href="index.html" class="brand">
         <img src="image/logo.png" alt="Grid-2081 logo" class="brand__logo" />
         <span class="brand__name">Grid-2081</span>
       </a>
 
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" id="navToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <i class="fa-solid fa-bars"></i>
       </button>
 
       <nav class="nav" id="mainNav" aria-label="Primary">
@@ -191,6 +194,7 @@
         <div class="nav__actions">
           <button class="btn btn--icon" id="themeToggle" aria-label="Toggle dark mode">
             <i class="fas fa-moon"></i>
+            <span class="theme-toggle-text">Dark Mode</span>
           </button>
         </div>
       </nav>
@@ -295,8 +299,18 @@
     const applyTheme = (theme) => {
       rootEl.setAttribute('data-theme', theme);
       localStorage.setItem('grid2081-theme', theme);
-      themeToggleBtn.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-      themeToggleBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      const icon = themeToggleBtn.querySelector('i');
+      const text = themeToggleBtn.querySelector('.theme-toggle-text');
+      
+      if (theme === 'dark') {
+        icon.className = 'fas fa-sun';
+        if (text) text.textContent = 'Light Mode';
+        themeToggleBtn.setAttribute('aria-label', 'Switch to light mode');
+      } else {
+        icon.className = 'fas fa-moon';
+        if (text) text.textContent = 'Dark Mode';
+        themeToggleBtn.setAttribute('aria-label', 'Switch to dark mode');
+      }
     };
 
     const toggleTheme = () => {
@@ -315,21 +329,107 @@
     /* Mobile menu */
     const navToggle = qs('#navToggle');
     const mainNav = qs('#mainNav');
-    navToggle.addEventListener('click', () => {
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      mainNav.classList.toggle('nav--open');
+    let hideMenu = true;
+
+    function toggleMenu() {
+      hideMenu = !hideMenu;
+      console.log('Menu toggled, hideMenu:', hideMenu); // Debug log
+      navToggle.setAttribute('aria-expanded', String(!hideMenu));
+      mainNav.classList.toggle('nav--open', !hideMenu);
+      
+      // Change icon based on menu state
+      const icon = navToggle.querySelector('i');
+      if (hideMenu) {
+        icon.className = 'fa-solid fa-bars';
+        navToggle.setAttribute('aria-label', 'Open menu');
+        console.log('Changed to hamburger icon'); // Debug log
+        
+        // Close all dropdowns when mobile menu closes
+        qsa('.nav__dropdown').forEach(drop => {
+          const btn = drop.querySelector('.nav__link--button');
+          const menu = drop.querySelector('.dropdown');
+          const chevron = btn.querySelector('.fas.fa-chevron-down');
+          btn.setAttribute('aria-expanded', 'false');
+          menu.classList.remove('dropdown--open');
+          if (chevron) {
+            chevron.style.transform = 'rotate(0deg)';
+          }
+        });
+      } else {
+        icon.className = 'fa-solid fa-times';
+        navToggle.setAttribute('aria-label', 'Close menu');
+        console.log('Changed to close icon'); // Debug log
+      }
+    }
+
+    navToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!hideMenu && !mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+        hideMenu = true;
+        navToggle.setAttribute('aria-expanded', 'false');
+        mainNav.classList.remove('nav--open');
+        const icon = navToggle.querySelector('i');
+        icon.className = 'fa-solid fa-bars';
+        navToggle.setAttribute('aria-label', 'Open menu');
+        
+        // Close all dropdowns when mobile menu closes
+        qsa('.nav__dropdown').forEach(drop => {
+          const btn = drop.querySelector('.nav__link--button');
+          const menu = drop.querySelector('.dropdown');
+          const chevron = btn.querySelector('.fas.fa-chevron-down');
+          btn.setAttribute('aria-expanded', 'false');
+          menu.classList.remove('dropdown--open');
+          if (chevron) {
+            chevron.style.transform = 'rotate(0deg)';
+          }
+        });
+      }
     });
 
     /* Dropdown behavior */
     qsa('.nav__dropdown').forEach(drop => {
       const btn = drop.querySelector('.nav__link--button');
       const menu = drop.querySelector('.dropdown');
+      const chevron = btn.querySelector('.fas.fa-chevron-down');
+      
       btn.addEventListener('click', (event) => {
         event.preventDefault();
+        event.stopPropagation();
+        console.log('Dropdown clicked'); // Debug log
+        
         const expanded = btn.getAttribute('aria-expanded') === 'true';
+        console.log('Current expanded state:', expanded); // Debug log
+        
+        // Close all other dropdowns first
+        qsa('.nav__dropdown').forEach(otherDrop => {
+          if (otherDrop !== drop) {
+            const otherBtn = otherDrop.querySelector('.nav__link--button');
+            const otherMenu = otherDrop.querySelector('.dropdown');
+            const otherChevron = otherBtn.querySelector('.fas.fa-chevron-down');
+            otherBtn.setAttribute('aria-expanded', 'false');
+            otherMenu.classList.remove('dropdown--open');
+            if (otherChevron) {
+              otherChevron.style.transform = 'rotate(0deg)';
+            }
+          }
+        });
+        
+        // Toggle current dropdown
         btn.setAttribute('aria-expanded', String(!expanded));
         menu.classList.toggle('dropdown--open');
+        console.log('Dropdown toggled, now open:', !expanded); // Debug log
+        
+        // Rotate chevron icon
+        if (chevron) {
+          chevron.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+          chevron.style.transition = 'transform 0.2s ease';
+        }
       });
     });
 
@@ -526,6 +626,103 @@
         }
       });
     });
+
+    /* Mobile FAB functionality */
+    const mobileFab = qs('#mobileFab');
+    let fabMenuOpen = false;
+
+    if (mobileFab) {
+      mobileFab.addEventListener('click', () => {
+        if (!fabMenuOpen) {
+          // Show quick access options
+          const quickMenu = document.createElement('div');
+          quickMenu.id = 'fab-menu';
+          quickMenu.style.cssText = `
+            position: fixed;
+            bottom: 100px;
+            left: 28px;
+            background: var(--surface);
+            border-radius: 12px;
+            box-shadow: var(--shadow-strong);
+            padding: 12px;
+            z-index: 49;
+            min-width: 200px;
+            border: var(--border);
+          `;
+          
+          quickMenu.innerHTML = `
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <a href="#classes" style="padding: 12px 16px; border-radius: 8px; background: rgba(79, 139, 249, 0.1); color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 500;">
+                <i class="fas fa-graduation-cap"></i> View Classes
+              </a>
+              <a href="#news" style="padding: 12px 16px; border-radius: 8px; background: rgba(79, 139, 249, 0.1); color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 500;">
+                <i class="fas fa-newspaper"></i> Latest News
+              </a>
+              <a href="html/specificgrid.html" style="padding: 12px 16px; border-radius: 8px; background: rgba(79, 139, 249, 0.1); color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 500;">
+                <i class="fas fa-book"></i> Curriculum
+              </a>
+              <button id="fabThemeToggle" style="padding: 12px 16px; border-radius: 8px; background: rgba(79, 139, 249, 0.1); color: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 500; width: 100%;">
+                <i class="fas fa-moon"></i> <span>Toggle Theme</span>
+              </button>
+            </div>
+          `;
+          
+          document.body.appendChild(quickMenu);
+          mobileFab.innerHTML = '<i class="fas fa-times"></i>';
+          fabMenuOpen = true;
+          
+          // Add theme toggle functionality to FAB menu
+          const fabThemeToggle = quickMenu.querySelector('#fabThemeToggle');
+          if (fabThemeToggle) {
+            // Update the icon based on current theme
+            const currentTheme = rootEl.getAttribute('data-theme');
+            const icon = fabThemeToggle.querySelector('i');
+            const text = fabThemeToggle.querySelector('span');
+            if (currentTheme === 'dark') {
+              icon.className = 'fas fa-sun';
+              text.textContent = 'Light Mode';
+            } else {
+              icon.className = 'fas fa-moon';
+              text.textContent = 'Dark Mode';
+            }
+            
+            fabThemeToggle.addEventListener('click', () => {
+              toggleTheme();
+              // Update the icon after theme change
+              const newTheme = rootEl.getAttribute('data-theme');
+              if (newTheme === 'dark') {
+                icon.className = 'fas fa-sun';
+                text.textContent = 'Light Mode';
+              } else {
+                icon.className = 'fas fa-moon';
+                text.textContent = 'Dark Mode';
+              }
+            });
+          }
+          
+          // Close menu when clicking outside
+          setTimeout(() => {
+            document.addEventListener('click', function closeFabMenu(e) {
+              if (!quickMenu.contains(e.target) && !mobileFab.contains(e.target)) {
+                quickMenu.remove();
+                mobileFab.innerHTML = '<i class="fas fa-plus"></i>';
+                fabMenuOpen = false;
+                document.removeEventListener('click', closeFabMenu);
+              }
+            });
+          }, 100);
+          
+        } else {
+          // Close menu
+          const existingMenu = qs('#fab-menu');
+          if (existingMenu) {
+            existingMenu.remove();
+          }
+          mobileFab.innerHTML = '<i class="fas fa-plus"></i>';
+          fabMenuOpen = false;
+        }
+      });
+    }
   </script>
 </body>
 
