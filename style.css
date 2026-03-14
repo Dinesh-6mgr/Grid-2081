@@ -768,9 +768,10 @@ img {
     padding: 1.1rem 1.2rem;
     background: rgba(255, 255, 255, 0.06);
     border-radius: 14px;
-    color: #fff;
+    color: #fff !important;
     display: block;
     margin-bottom: 0.5rem;
+    font-weight: 500;
   }
 
   .nav__link--button {
@@ -778,7 +779,7 @@ img {
     padding: 1.1rem 1.2rem;
     background: rgba(255, 255, 255, 0.06);
     border-radius: 14px;
-    color: #fff;
+    color: #fff !important;
     border: none;
     cursor: pointer;
     display: flex;
@@ -787,10 +788,17 @@ img {
     font: inherit;
     text-align: left;
     margin-bottom: 0.5rem;
+    font-weight: 500;
   }
 
   .nav__link--button:hover {
     background: rgba(255, 255, 255, 0.1);
+    color: #fff !important;
+  }
+
+  .nav__link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff !important;
   }
 
   .nav__actions {
@@ -872,10 +880,13 @@ img {
     margin-bottom: 0.3rem;
     border-radius: 12px;
     transition: background 0.2s ease;
+    color: #fff !important;
+    font-weight: 500;
   }
 
   .dropdown a:hover {
     background: rgba(255, 255, 255, 0.1);
+    color: #fff !important;
   }
 }
 
