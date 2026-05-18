@@ -23,9 +23,118 @@
   <!-- Service Worker -->
   <script defer>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(reg => console.log('ServiceWorker registered:', reg.scope))
-        .catch(err => console.log('ServiceWorker registration failed:', err));
+      window.addEventListener('load', async () => {
+        try {
+          const registration = await navigator.serviceWorker.register('service-worker.js');
+          console.log('ServiceWorker registered:', registration.scope);
+          listenForUpdates(registration);
+        } catch (err) {
+          console.log('ServiceWorker registration failed:', err);
+        }
+      });
+    }
+
+    let deferredInstallPrompt;
+    const statusToast = document.createElement('div');
+    statusToast.id = 'statusToast';
+    statusToast.className = 'status-toast';
+    statusToast.style.display = 'none';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.appendChild(statusToast);
+      updateNetworkStatus();
+    });
+
+    window.addEventListener('online', updateNetworkStatus);
+    window.addEventListener('offline', updateNetworkStatus);
+
+    window.addEventListener('beforeinstallprompt', event => {
+      event.preventDefault();
+      deferredInstallPrompt = event;
+      showStatus('Install Grid 2081 for a better offline experience', 'Install', promptInstall);
+    });
+
+    function listenForUpdates(registration) {
+      if (registration.waiting) {
+        showUpdateReady();
+        return;
+      }
+
+      registration.addEventListener('updatefound', () => {
+        const installingWorker = registration.installing;
+        if (!installingWorker) return;
+        installingWorker.addEventListener('statechange', () => {
+          if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            showUpdateReady();
+          }
+        });
+      });
+
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        window.location.reload();
+      });
+    }
+
+    function sendSWMessage(message) {
+      if (navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.postMessage(message);
+      }
+    }
+
+    function showStatus(message, buttonLabel = null, buttonAction = null, visibleMs = 6000) {
+      statusToast.innerHTML = '';
+      const text = document.createElement('span');
+      text.textContent = message;
+      statusToast.appendChild(text);
+
+      if (buttonLabel && buttonAction) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = buttonLabel;
+        button.addEventListener('click', buttonAction);
+        statusToast.appendChild(button);
+      }
+
+      statusToast.style.display = 'flex';
+      statusToast.classList.add('status-toast--visible');
+      clearTimeout(statusToast.dismissTimeout);
+
+      if (visibleMs > 0) {
+        statusToast.dismissTimeout = setTimeout(() => {
+          hideStatus();
+        }, visibleMs);
+      }
+    }
+
+    function hideStatus() {
+      statusToast.style.display = 'none';
+      statusToast.classList.remove('status-toast--visible');
+    }
+
+    function updateNetworkStatus() {
+      if (navigator.onLine) {
+        showStatus('You are online', null, null, 3000);
+      } else {
+        showStatus('You are offline. Cached pages are still available.', null, null, 10000);
+      }
+    }
+
+    function showUpdateReady() {
+      showStatus('A new version is available', 'Reload', () => {
+        sendSWMessage({ type: 'SKIP_WAITING' });
+      }, 0);
+    }
+
+    async function promptInstall() {
+      if (!deferredInstallPrompt) return;
+      deferredInstallPrompt.prompt();
+      const choice = await deferredInstallPrompt.userChoice;
+      if (choice.outcome === 'accepted') {
+        showStatus('Installation started', null, null, 4000);
+      } else {
+        showStatus('Installation dismissed', null, null, 4000);
+      }
+      deferredInstallPrompt = null;
     }
   </script>
 
@@ -109,6 +218,42 @@
     .submenu.show {
       display: block;
     }
+
+    .status-toast {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: rgba(11, 20, 55, 0.95);
+      color: #fff;
+      border-radius: 999px;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+      z-index: 9999;
+      font-size: 0.95rem;
+      max-width: min(92vw, 520px);
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .status-toast button {
+      border: none;
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+
+    .status-toast button:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
   </style>
 </head>
 
@@ -187,6 +332,7 @@
             </ul>
           </li>
           <li class="nav__item"><a class="nav__link" href="html/specificgrid.html">Curriculum</a></li>
+          <li class="nav__item"><a class="nav__link" href="./html/Contact.html">Contacts</a></li>
           <li class="nav__item"><a class="nav__link" href="https://ictmis.mycemserp.com/Teacher/" target="_blank" rel="noopener">Teacher login</a></li>
           <li class="nav__item"><a class="nav__link" href="https://ictmis.mycemserp.com/Student" target="_blank" rel="noopener">Student login</a></li>
         </ul>
@@ -590,50 +736,6 @@
 
     detectSocialMediaApp();
 
-    /* Install banner */
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-
-      const installBanner = document.createElement('div');
-      installBanner.id = 'install-banner';
-      installBanner.style.cssText = `
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(135deg, #4f8bf9, #6aa9ff);
-        display: flex; flex-direction: column; justify-content: center;
-        align-items: center; z-index: 10000; font-family: Poppins, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        color: white; text-align: center; padding: 20px;
-      `;
-
-      const message = document.createElement('h2');
-      message.innerText = 'Install Our App!';
-      installBanner.appendChild(message);
-
-      const subMessage = document.createElement('p');
-      subMessage.innerText = 'Get the best experience by installing our app on your device.';
-      subMessage.style.marginBottom = '40px';
-      installBanner.appendChild(subMessage);
-
-      const installBtn = document.createElement('button');
-      installBtn.innerText = 'Install Now';
-      installBtn.style.cssText = `
-        font-size: 20px; padding: 15px 30px; background-color: #ffcc00;
-        color: #333; border: none; border-radius: 10px; cursor: pointer;
-        font-weight: bold;
-      `;
-      installBtn.onclick = async () => {
-        installBanner.remove();
-        deferredPrompt.prompt();
-        const choice = await deferredPrompt.userChoice;
-        console.log('User choice:', choice.outcome);
-        deferredPrompt = null;
-      };
-
-      installBanner.appendChild(installBtn);
-      document.body.appendChild(installBanner);
-    });
-
     /* Smooth scroll for internal links */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -685,6 +787,9 @@
               </a>
               <a href="html/specificgrid.html" style="padding: 12px 16px; border-radius: 8px; background: rgba(79, 139, 249, 0.1); color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 500;">
                 <i class="fas fa-book"></i> Curriculum
+              </a>
+              <a href="contact-management/index.html" style="padding: 12px 16px; border-radius: 8px; background: rgba(79, 139, 249, 0.1); color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 500;">
+                <i class="fas fa-address-book"></i> Contacts
               </a>
               <button id="fabThemeToggle" style="padding: 12px 16px; border-radius: 8px; background: rgba(79, 139, 249, 0.1); color: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 500; width: 100%;">
                 <i class="fas fa-moon"></i> <span>Toggle Theme</span>

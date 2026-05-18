@@ -78,64 +78,85 @@
   </nav>
 
   <section class="page-hero">
-    <div class="page-hero__badge">Curriculum</div>
-    <h1 class="page-hero__title">Curriculum Documents</h1>
-    <p class="page-hero__sub">View or download official curriculum documents for all grade levels</p>
+    <h1 class="page-hero__title">Contact Us</h1>
+    <p class="page-hero__sub">Get contact information for teachers and students</p>
+ 
   </section>
 
-  <main class="subjects">
-    <div class="subjects__grid">
+  <div id="loginView" class="login-view">
+    <section class="login-card">
+      <h2>Login to access Contacts</h2>
+      <p class="login-instruction">Enter your phone number and password to continue.</p>
+      <form id="loginForm">
+        <label for="phoneInput">Phone number</label>
+        <input id="phoneInput" type="tel" placeholder="9800000000" required autocomplete="tel">
 
-      <div class="subject-card accent-blue">
-        <div class="subject-card__icon"><i class="fas fa-graduation-cap"></i></div>
-        <div class="subject-card__body">
-          <span class="subject-card__subject">Curriculum</span>
-          <p class="subject-card__title">Classes 4-5 Curriculum</p>
-          <div class="subject-card__actions">
-            <a href="../Specificgrid-pdf/4-5 Curriculum.pdf" class="btn-view" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="../Specificgrid-pdf/4-5 Curriculum.pdf" class="btn-download" download><i class="fas fa-download"></i> Download</a>
-          </div>
-        </div>
-      </div>
+        <label for="passwordInput">Password</label>
+        <input id="passwordInput" type="password" placeholder="Password" required autocomplete="current-password">
 
-      <div class="subject-card accent-green">
-        <div class="subject-card__icon"><i class="fas fa-book"></i></div>
-        <div class="subject-card__body">
-          <span class="subject-card__subject">Curriculum</span>
-          <p class="subject-card__title">Classes 6-8 Curriculum – Part 1</p>
-          <div class="subject-card__actions">
-            <a href="../Specificgrid-pdf/6-8 Curriculum Part 1.pdf" class="btn-view" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="../Specificgrid-pdf/6-8 Curriculum Part 1.pdf" class="btn-download" download><i class="fas fa-download"></i> Download</a>
-          </div>
-        </div>
-      </div>
+        <button class="btn-login" type="submit">Login</button>
+      </form>
+      <p id="loginMessage" class="login-message"></p>
+    </section>
+  </div>
 
-      <div class="subject-card accent-teal">
-        <div class="subject-card__icon"><i class="fas fa-book-open"></i></div>
-        <div class="subject-card__body">
-          <span class="subject-card__subject">Curriculum</span>
-          <p class="subject-card__title">Classes 6-8 Curriculum – Part 2</p>
-          <div class="subject-card__actions">
-            <a href="../Specificgrid-pdf/6-8 Curriculum Part 2.pdf" class="btn-view" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="../Specificgrid-pdf/6-8 Curriculum Part 2.pdf" class="btn-download" download><i class="fas fa-download"></i> Download</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="subject-card accent-purple">
-        <div class="subject-card__icon"><i class="fas fa-university"></i></div>
-        <div class="subject-card__body">
-          <span class="subject-card__subject">Curriculum</span>
-          <p class="subject-card__title">Classes 9-10 Compulsory Subjects</p>
-          <div class="subject-card__actions">
-            <a href="../Specificgrid-pdf/9-10 Compulsory Subject.pdf" class="btn-view" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="../Specificgrid-pdf/9-10 Compulsory Subject.pdf" class="btn-download" download><i class="fas fa-download"></i> Download</a>
-          </div>
-        </div>
-      </div>
-
+  <div id="dashboardView" class="hidden">
+    <div id="loadingOverlay" class="loading-overlay hidden" aria-hidden="true">
+      <div class="loader" aria-hidden="true"></div>
     </div>
-  </main>
+
+    <main class="dashboard-container">
+      <section class="controls-row">
+        <div class="left-controls">
+          <div class="search-box modern">
+            <i class="fas fa-search"></i>
+            <input id="searchInput" type="search" placeholder="Search name, class, phone..." aria-label="Search">
+          </div>
+          <select id="classFilter" class="class-filter modern" aria-label="Filter by class">
+            <option value="">All classes</option>
+          </select>
+        </div>
+        <div class="right-controls">
+          <div class="badge-wrap">
+            <span class="badge" id="resultCount">0</span>
+            <span class="badge-label">Students</span>
+          </div>
+          <button class="logout-btn" id="logoutBtn" type="button"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+      </section>
+
+      <section class="content-card modern-card">
+        <div class="content-heading">
+          <div>
+            <span class="eyebrow" id="activeEyebrow">Student List</span>
+            <h2 id="sectionTitle">Students</h2>
+          </div>
+        </div>
+
+        <div class="directory-grid" id="directoryGrid" aria-live="polite"></div>
+
+        <div class="empty-state empty-modern hidden" id="emptyState">
+          <div class="empty-emoji">🔎</div>
+          <h3>No contacts found</h3>
+          <p>Try a different name, class, subject, or phone number.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
 
   <footer class="footer">
     <p>&copy; 2025 Shree Jana Jyoti Namuna Secondary School. All Rights Reserved.</p>
@@ -251,6 +272,8 @@
       });
     }
   </script>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
 
 </body>
 </html>
