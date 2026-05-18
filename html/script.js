@@ -39,9 +39,9 @@
 
 const teachers = [
   {
-    name: "Sita Magar",
+    name: "Dinesh Rana Magar",
     subject: "Math",
-    phone: "9800000000",
+    phone: "9814462637",
     password: "admin123"
   },
   {
@@ -75,6 +75,7 @@ const allowedUsers = teachers.map(t => ({ phone: t.phone, password: t.password }
 const allowedUserCount = allowedUsers.length;
 
 const authKey = "grid2081-contact-auth";
+const teacherNameKey = "grid2081-contact-teacher-name";
 let activeSection = "students";
 let searchTerm = "";
 
@@ -93,6 +94,7 @@ const sectionTitle = document.getElementById("sectionTitle");
 const activeEyebrow = document.getElementById("activeEyebrow");
 const toast = document.getElementById("toast");
 const classFilter = document.getElementById("classFilter");
+const teacherGreeting = document.getElementById("teacherGreeting");
 let activeClassFilter = "";
 
 function showLoader() {
@@ -119,9 +121,16 @@ function showDashboard() {
   if (loginView && loginView.classList) loginView.classList.add("hidden");
   if (dashboardView && dashboardView.classList) {
     dashboardView.classList.remove("hidden");
+    updateTeacherGreeting();
     populateClassFilter();
     renderDirectory();
   }
+}
+
+function updateTeacherGreeting() {
+  if (!teacherGreeting) return;
+  const teacherName = localStorage.getItem(teacherNameKey);
+  teacherGreeting.textContent = teacherName ? `Hi, ${teacherName}` : "Hi, Teacher";
 }
 
 function setMessage(message, type = "error") {
@@ -143,9 +152,9 @@ function handleLogin(event) {
     return;
   }
 
-  const validUser = allowedUsers.some(user => user.phone === phone && user.password === password);
+  const validTeacher = teachers.find(teacher => teacher.phone === phone && teacher.password === password);
 
-  if (!validUser) {
+  if (!validTeacher) {
     setMessage("Incorrect phone number or password. Please try again.");
     passwordInput.value = "";
     passwordInput.focus();
@@ -154,6 +163,7 @@ function handleLogin(event) {
 
   setMessage("Login successful. Loading dashboard...", "success");
   localStorage.setItem(authKey, "true");
+  localStorage.setItem(teacherNameKey, validTeacher.name);
   setTimeout(() => {
     showDashboard();
     loginForm.reset();
@@ -162,6 +172,7 @@ function handleLogin(event) {
 
 function handleLogout() {
   localStorage.removeItem(authKey);
+  localStorage.removeItem(teacherNameKey);
   setTimeout(() => {
     showLogin();
   }, 350);

@@ -202,6 +202,17 @@ body {
   padding: 0 24px 24px;
 }
 
+.teacher-greeting {
+  margin: 0 0 18px;
+  padding: 16px 20px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(79, 139, 249, 0.14), rgba(34, 197, 94, 0.12));
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 700;
+  box-shadow: 0 12px 30px rgba(11, 20, 55, 0.08);
+}
+
 /* Theme variables */
 :root {
   --bg-start: #f4f6fb;
