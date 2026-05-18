@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v4';
+const CACHE_VERSION = 'v5';
 const CACHE_PREFIX = 'jananamuna';
 const PRECACHE = `${CACHE_PREFIX}-precache-${CACHE_VERSION}`;
 const PAGES_CACHE = `${CACHE_PREFIX}-pages-${CACHE_VERSION}`;
@@ -7,11 +7,11 @@ const PDF_CACHE = `${CACHE_PREFIX}-pdfs-${CACHE_VERSION}`;
 const IMAGE_CACHE = `${CACHE_PREFIX}-images-${CACHE_VERSION}`;
 const FONT_CACHE = `${CACHE_PREFIX}-fonts-${CACHE_VERSION}`;
 const OFFLINE_PAGE = new URL('offline.html', self.registration.scope).href;
+const HOME_PAGE = new URL('./', self.registration.scope).href;
 
 const PRECACHE_URLS = [
   './',
   './index.html',
-  './offline.html',
   './style.css',
   './css/class-page.css',
   './manifest.json',
@@ -83,7 +83,7 @@ async function staleWhileRevalidate(request, cacheName, maxItems) {
     return response;
   }).catch(() => null);
 
-  return cachedResponse || networkResponsePromise || caches.match(OFFLINE_PAGE);
+  return cachedResponse || networkResponsePromise;
 }
 
 async function handlePdfRequest(request) {
@@ -130,7 +130,7 @@ self.addEventListener('fetch', event => {
   const isSameOrigin = requestUrl.origin === self.location.origin;
 
   if (event.request.mode === 'navigate') {
-    event.respondWith(networkFirst(event.request, PAGES_CACHE, OFFLINE_PAGE));
+    event.respondWith(networkFirst(event.request, PAGES_CACHE, HOME_PAGE));
     return;
   }
 
