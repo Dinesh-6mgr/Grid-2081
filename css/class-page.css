@@ -1047,7 +1047,7 @@ body {
 }
 
 .menu-section.expanded .menu-section-content {
-  max-height: 500px;
+  max-height: none;
 }
 
 .menu-overlay {
