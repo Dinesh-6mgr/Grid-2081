@@ -174,41 +174,6 @@
   </button>
 
   <script>
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const menuOverlay = document.getElementById('menuOverlay');
-
-    function toggleMenu() {
-      menuToggle.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      menuOverlay.classList.toggle('active');
-    }
-
-    function toggleSection(sectionId) {
-      const section = document.getElementById(sectionId).parentElement;
-      
-      // Close all other sections first (accordion behavior)
-      document.querySelectorAll('.menu-section').forEach(otherSection => {
-        if (otherSection !== section) {
-          otherSection.classList.remove('expanded');
-        }
-      });
-      
-      // Toggle current section
-      section.classList.toggle('expanded');
-    }
-
-    menuToggle.addEventListener('click', toggleMenu);
-    menuOverlay.addEventListener('click', toggleMenu);
-
-    // Close menu when clicking on a link
-    mobileMenu.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A') {
-        toggleMenu();
-      }
-    });
-
     // Mobile FAB functionality
     const mobileFab = document.getElementById('mobileFab');
     let fabMenuOpen = false;
